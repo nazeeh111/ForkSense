@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-26",
+  "cases": [
+    {
+      "instance_id": "pallets__flask-4045",
+      "base_commit": "d8c37f43724cd9fb0870f77877b7c4c7e38a19e0",
+      "test_patch_sha256": "def1da53a3857f67b571f108abde6fcdac61da5c7820c0749fa7c487fe87a62a",
+      "status": "issue failure reproduced with regression tests passing",
+      "pytest_summary": "2 failed, 50 passed",
+      "resolved": false,
+      "returncode": 1,
+      "pytest_log_sha256": "882654cde1de48416b411bf1ad803a81c2ca703da55da05f370ab2a7eede0a6b",
+      "python_version": "3.12.14",
+      "system": "macOS arm64",
+      "evaluation_kind": "selected SWE-bench Lite issue reproduction; not official Docker evaluation"
+    },
+    {
+      "instance_id": "pallets__flask-4992",
+      "base_commit": "4c288bc97ea371817199908d0d9b12de9dae327e",
+      "test_patch_sha256": "851c94393511592a1e3b65ea1d909b73b342ef55388819c6bd9632edb71ad304",
+      "status": "issue failure reproduced with regression tests passing",
+      "pytest_summary": "1 failed, 18 passed",
+      "resolved": false,
+      "returncode": 1,
+      "pytest_log_sha256": "bc07502624e841a97608dc057b6a026a8c1c3cd2c9920fa4a52ba7a8dfec34b7",
+      "python_version": "3.12.14",
+      "system": "macOS arm64",
+      "evaluation_kind": "selected SWE-bench Lite issue reproduction; not official Docker evaluation"
+    },
+    {
+      "instance_id": "pallets__flask-5063",
+      "base_commit": "182ce3dd15dfa3537391c3efaf9c3ff407d134d4",
+      "test_patch_sha256": "e5b1124e11d391cc01f7d9d03ada6ccd629a817a3334d5980884ed276237bf96",
+      "status": "issue failure reproduced with regression tests passing",
+      "pytest_summary": "2 failed, 55 passed",
+      "resolved": false,
+      "returncode": 1,
+      "pytest_log_sha256": "bc21ce6afb7d1c3bae2f3b80502249efa23e226ff7fa8033d4770af0b5d11b26",
+      "python_version": "3.12.14",
+      "system": "macOS arm64",
+      "evaluation_kind": "selected SWE-bench Lite issue reproduction; not official Docker evaluation"
+    }
+  ]
+}

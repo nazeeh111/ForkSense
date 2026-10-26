@@ -28,7 +28,7 @@ The [method document](docs/method.md) cites the original sources for rollout reu
 
 These works are cited as prior art and motivation. Their reported performance numbers are not ForkSense measurements. No paper text, figures, reference solutions or framework code are redistributed here. In particular, the noncommercial license associated with the test-time-compute paper is not treated as a license to transplant its content into this MIT project.
 
-[SWE-bench](https://github.com/SWE-bench/SWE-bench) supplies the reference task format and official evaluation framework discussed in the documentation. The controlled benchmark in this repository is original synthetic material and is not a SWE-bench result. Any separately retained real-issue pilot must preserve its own upstream repository, commit, test provenance and license information.
+[SWE-bench](https://github.com/SWE-bench/SWE-bench) supplies the reference task format and official evaluation framework discussed in the documentation. The controlled benchmark in this repository is original synthetic material and is not a SWE-bench result. The selected Flask issue pilot preserves upstream commit, issue and test-patch identities. Flask source and tests are fetched externally, retain their BSD-3-Clause terms, and are attributed in [the retained Flask license](benchmarks/real_cases/FLASK_LICENSE.txt). The dataset-wide license was not independently established; original issue prose and official test patches are obtained at runtime rather than bundled in the public evidence.
 
 ## Presentation tools and assets
 

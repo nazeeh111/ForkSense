@@ -1,0 +1,83 @@
+{
+  "seed": 20261026,
+  "schedule": [
+    {
+      "case": "pallets__flask-5063",
+      "repeat": 0,
+      "mode": "forksense",
+      "launch_order": 0,
+      "pair_index": 0,
+      "schedule_index": 0
+    },
+    {
+      "case": "pallets__flask-5063",
+      "repeat": 0,
+      "mode": "ordinary",
+      "launch_order": 1,
+      "pair_index": 0,
+      "schedule_index": 1
+    },
+    {
+      "case": "pallets__flask-5063",
+      "repeat": 2,
+      "mode": "forksense",
+      "launch_order": 2,
+      "pair_index": 1,
+      "schedule_index": 2
+    },
+    {
+      "case": "pallets__flask-5063",
+      "repeat": 2,
+      "mode": "ordinary",
+      "launch_order": 3,
+      "pair_index": 1,
+      "schedule_index": 3
+    },
+    {
+      "case": "pallets__flask-5063",
+      "repeat": 1,
+      "mode": "ordinary",
+      "launch_order": 4,
+      "pair_index": 2,
+      "schedule_index": 4
+    },
+    {
+      "case": "pallets__flask-5063",
+      "repeat": 1,
+      "mode": "forksense",
+      "launch_order": 5,
+      "pair_index": 2,
+      "schedule_index": 5
+    }
+  ],
+  "maximum_trial_seconds": 180.0,
+  "maximum_agent_calls_per_trial": 1,
+  "agent_timeout_rule": "Both modes reserve 25 percent of remaining time for extraction and public verification.",
+  "manual_plan_authoring_seconds": null,
+  "runtime_plan_setup_seconds": 0.2799610421061516,
+  "core_source_sha256": {
+    "engine.py": "dd6786f92320d83a27d9a53c4539a7d0dcb641aaded7f820b1786d9769a761ae",
+    "policy.py": "9f192bd633f66266e67c5b380f99c57553d885a2ebb3829922b737637bbe5b68",
+    "process.py": "ab54bb5425e3aa770b34283a800d182879be08c7b4d884cc0d74131ae9dab5fa",
+    "agents.py": "b51f3985b7a8e197a98389c1d12f8550ce6a47171d7a62492f488978dfaba138",
+    "git.py": "eef676fff9a7a13ca04586e44adac7f76d6fc0637ffb587fe64e8cbafe6326ba",
+    "models.py": "f69181c46fb3ab77b86e34476fc63f4921da72581ac0a6415e0d12b3aa65509b",
+    "learning.py": "3a924172dffe8458415913e71d702f201e025fadb0af39a9f75b47fcb348ea2e"
+  },
+  "versions": {
+    "codex": "codex-cli 0.164.0",
+    "python": "3.14.7 (v3.14.7:823f0323ee6, Aug  5 2026, 07:07:01) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "model_override": null
+  },
+  "files": {
+    "benchmarks/real_cases/pilot.py": "b7eb6e6051a9c02dd264894aadbbbaec417878201e1dc688dac11c4029950129",
+    "benchmarks/real_cases/pilot_specs.py": "63865fdc7ffac35fe9ab7580112cfa016ae1919f060a1e3432aca02738f6bf1c",
+    "benchmarks/real_cases/manifest.json": "34708cfc63b8ff8aeaf7e30420851fcc3417df66d411fd1281581eade43775a7",
+    "benchmarks/real_cases/evaluate.py": "d4ce78d2d7b9853a3cca9efdfa4c0ea1f24dbae11f674f544d9079b197b130a9"
+  },
+  "plan_sha256": {
+    "pallets__flask-5063": "914fe379f946fb9d17c5d10f37fd554e5117a3813ca4b1d33705f8f5e5fd7476"
+  },
+  "private_predeclared_sha256": "0d7cc91fa4e4ae952667782d4cdcc98de97d5c73eaa13c08b833e24b337fe50b",
+  "public_export_note": "Original plan hashes commit to private original text and local interpreter paths; public normalized plans omit original issue prose and are not byte-identical."
+}

@@ -123,9 +123,22 @@ The frozen controlled study contains **18 synthetic tasks**, with **9 held-out t
 
 Adaptive selection matched the strongest prepared-repair baseline with fewer commands in this setup. It did not improve resolution over fixed-three. The learned model matched the heuristic's resolution and command use, took more wall time on this host, and added 10.67 seconds of training executions. **The simpler heuristic remains the default.**
 
-These are controlled policy results, not a SWE-bench score or proof that ForkSense improves ordinary Codex or Claude Code. The root UCT proxy does not replicate a full tree-search agent. Three family clusters make the reported uncertainty intervals exploratory. Full agent comparisons remain open work.
+These are controlled policy results, not a SWE-bench score or proof that ForkSense improves ordinary Codex or Claude Code. The root UCT proxy does not replicate a full tree-search agent. Three family clusters make the reported uncertainty intervals exploratory. Broader agent comparisons, including live parallel and full tree-search baselines, remain open work.
 
 [Method and prior work](docs/method.md) · [Frozen methodology](benchmarks/README.md) · [Complete results](benchmarks/results-v2/REPORT.md) · [Raw trial receipts](benchmarks/results-v2/trials.jsonl) · [Known limits](docs/limitations.md)
+
+## Live issue pilot
+
+A separate corrected pilot used the installed Codex CLI on the frozen Flask routes issue `pallets__flask-5063`, with three repetitions per mode and official tests withheld until each repair ended.
+
+| Mode | Official tests resolved | Mean trial time |
+| --- | ---: | ---: |
+| Ordinary Codex | 3 / 3 | 69.8 s |
+| ForkSense | 3 / 3 | 69.8 s |
+
+Both modes used one repair call. ForkSense also ran one diagnostic. **This pilot establishes no resolution or speed advantage.** It covers one task, uses manually predeclared plans, and does not establish generalization. Retained ordinary-agent logs were truncated, so their complete reference-access audit is unavailable.
+
+A separate blueprint cohort passed its visible issue check but failed an expanded official endpoint-exception contract in both modes. An earlier routes harness defect invalidated four calls; two further calls were cancelled before execution. Those cohorts remain separately documented. [Live pilot results and corrections](benchmarks/real_cases/results-live-v2/README.md) include commands, source hashes, failures, costs and limits. These are selected issue reproductions, not a SWE-bench score.
 
 ## Small by design
 

@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-26",
+  "study": "Selected live Codex issue reproductions with manual plans",
+  "cohorts": {
+    "descriptive_4045_v1": {
+      "ordinary": {
+        "attempts": 3,
+        "official_resolved": 0,
+        "public_smoke_passes": 3,
+        "mean_trial_seconds": 49.325637763676546,
+        "median_trial_seconds": 48.46637866599485,
+        "total_trial_seconds": 147.97691329102963,
+        "agent_calls": 3,
+        "usage": {
+          "input_tokens": 594651,
+          "output_tokens": 4390,
+          "cached_input_tokens": 497280
+        }
+      },
+      "forksense": {
+        "attempts": 3,
+        "official_resolved": 0,
+        "public_smoke_passes": 3,
+        "mean_trial_seconds": 51.60758881899528,
+        "median_trial_seconds": 51.18230979098007,
+        "total_trial_seconds": 154.82276645698585,
+        "agent_calls": 3,
+        "usage": {
+          "input_tokens": 581064,
+          "output_tokens": 5175,
+          "cached_input_tokens": 482048
+        }
+      }
+    },
+    "matched_5063_v2": {
+      "ordinary": {
+        "attempts": 3,
+        "official_resolved": 3,
+        "public_smoke_passes": 3,
+        "mean_trial_seconds": 69.77983819468257,
+        "median_trial_seconds": 69.71435129200108,
+        "total_trial_seconds": 209.33951458404772,
+        "agent_calls": 3,
+        "usage": {
+          "input_tokens": 766132,
+          "output_tokens": 6636,
+          "cached_input_tokens": 692864
+        }
+      },
+      "forksense": {
+        "attempts": 3,
+        "official_resolved": 3,
+        "public_smoke_passes": 3,
+        "mean_trial_seconds": 69.76339901405542,
+        "median_trial_seconds": 69.63323129201308,
+        "total_trial_seconds": 209.29019704216626,
+        "agent_calls": 3,
+        "usage": {
+          "input_tokens": 695324,
+          "output_tokens": 6954,
+          "cached_input_tokens": 613248
+        }
+      }
+    },
+    "invalid_5063_v1": {
+      "actual_agent_calls": 4,
+      "comparative_use": false
+    },
+    "cancelled_5063_v1": {
+      "planned_trials": 2,
+      "actual_agent_calls": 0
+    }
+  },
+  "not_swebench_score": true,
+  "native_cli": "codex-cli 0.164.0",
+  "authentication_mode": "ChatGPT, reported by native codex login status",
+  "model": "User-configured CLI default; no override and model identifier not independently observed.",
+  "total_actual_agent_calls": 16,
+  "paired_5063_v2": [
+    {
+      "repeat": 0,
+      "ordinary": {
+        "resolved": true,
+        "public_smoke_passed": true,
+        "trial_seconds": 70.35471212503035,
+        "usage": {
+          "input_tokens": 268748,
+          "output_tokens": 2173,
+          "cached_input_tokens": 245248
+        },
+        "diagnostic_count": 0,
+        "gold_evaluation_seconds": 5.152391749899834
+      },
+      "forksense": {
+        "resolved": true,
+        "public_smoke_passed": true,
+        "trial_seconds": 69.10218491707928,
+        "usage": {
+          "input_tokens": 216797,
+          "output_tokens": 2278,
+          "cached_input_tokens": 191488
+        },
+        "diagnostic_count": 1,
+        "gold_evaluation_seconds": 5.583627791958861
+      }
+    },
+    {
+      "repeat": 1,
+      "ordinary": {
+        "resolved": true,
+        "public_smoke_passed": true,
+        "trial_seconds": 69.27045116701629,
+        "usage": {
+          "input_tokens": 271485,
+          "output_tokens": 2156,
+          "cached_input_tokens": 245376
+        },
+        "diagnostic_count": 0,
+        "gold_evaluation_seconds": 2.2046401670668274
+      },
+      "forksense": {
+        "resolved": true,
+        "public_smoke_passed": true,
+        "trial_seconds": 69.63323129201308,
+        "usage": {
+          "input_tokens": 255950,
+          "output_tokens": 2306,
+          "cached_input_tokens": 234368
+        },
+        "diagnostic_count": 1,
+        "gold_evaluation_seconds": 2.3585591670125723
+      }
+    },
+    {
+      "repeat": 2,
+      "ordinary": {
+        "resolved": true,
+        "public_smoke_passed": true,
+        "trial_seconds": 69.71435129200108,
+        "usage": {
+          "input_tokens": 225899,
+          "output_tokens": 2307,
+          "cached_input_tokens": 202240
+        },
+        "diagnostic_count": 0,
+        "gold_evaluation_seconds": 2.4303735840367153
+      },
+      "forksense": {
+        "resolved": true,
+        "public_smoke_passed": true,
+        "trial_seconds": 70.55478083307389,
+        "usage": {
+          "input_tokens": 222577,
+          "output_tokens": 2370,
+          "cached_input_tokens": 187392
+        },
+        "diagnostic_count": 1,
+        "gold_evaluation_seconds": 2.438932083081454
+      }
+    }
+  ]
+}

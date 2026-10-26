@@ -1,0 +1,21 @@
+{
+  "before": {
+    "engine.py": "dd6786f92320d83a27d9a53c4539a7d0dcb641aaded7f820b1786d9769a761ae",
+    "policy.py": "9f192bd633f66266e67c5b380f99c57553d885a2ebb3829922b737637bbe5b68",
+    "process.py": "ab54bb5425e3aa770b34283a800d182879be08c7b4d884cc0d74131ae9dab5fa",
+    "agents.py": "b51f3985b7a8e197a98389c1d12f8550ce6a47171d7a62492f488978dfaba138",
+    "git.py": "eef676fff9a7a13ca04586e44adac7f76d6fc0637ffb587fe64e8cbafe6326ba",
+    "models.py": "f69181c46fb3ab77b86e34476fc63f4921da72581ac0a6415e0d12b3aa65509b",
+    "learning.py": "3a924172dffe8458415913e71d702f201e025fadb0af39a9f75b47fcb348ea2e"
+  },
+  "after": {
+    "engine.py": "dd6786f92320d83a27d9a53c4539a7d0dcb641aaded7f820b1786d9769a761ae",
+    "policy.py": "9f192bd633f66266e67c5b380f99c57553d885a2ebb3829922b737637bbe5b68",
+    "process.py": "ab54bb5425e3aa770b34283a800d182879be08c7b4d884cc0d74131ae9dab5fa",
+    "agents.py": "b51f3985b7a8e197a98389c1d12f8550ce6a47171d7a62492f488978dfaba138",
+    "git.py": "eef676fff9a7a13ca04586e44adac7f76d6fc0637ffb587fe64e8cbafe6326ba",
+    "models.py": "f69181c46fb3ab77b86e34476fc63f4921da72581ac0a6415e0d12b3aa65509b",
+    "learning.py": "3a924172dffe8458415913e71d702f201e025fadb0af39a9f75b47fcb348ea2e"
+  },
+  "unchanged": true
+}

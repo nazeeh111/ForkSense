@@ -1,0 +1,206 @@
+{
+  "pallets__flask-5063": {
+    "version": 1,
+    "verify": [
+      "<SETUP>/modern-venv312/bin/python",
+      "-W",
+      "ignore::DeprecationWarning",
+      "-c",
+      "import os,sys;sys.path.insert(0,os.path.join(os.getcwd(),'src'));exec('import flask\\n\\napp = flask.Flask(\"public_smoke\", root_path=\".\", static_folder=None)\\napp.config[\"SERVER_NAME\"] = \"test.local\"\\nadmin = flask.Blueprint(\"alpha_group\", \"public_smoke\", root_path=\".\")\\nother = flask.Blueprint(\"beta_group\", \"public_smoke\", root_path=\".\")\\nadmin.add_url_rule(\"/dashboard\", endpoint=\"alpha_view\", view_func=lambda: \"a\")\\nother.add_url_rule(\"/metrics\", endpoint=\"beta_view\", view_func=lambda: \"b\")\\napp.register_blueprint(admin, subdomain=\"admin\")\\napp.register_blueprint(other, subdomain=\"test\")\\nresult = app.test_cli_runner().invoke(args=[\"routes\"])\\nassert result.exit_code == 0, repr(result.exception)\\noutput = result.output\\nassert \"admin\" in output and \"test\" in output, output\\nassert \"/dashboard\" in output and \"/metrics\" in output and \"GET\" in output, output\\n# The issue permits a domain or subdomain display; no particular header,\\n# formatting, sorting mode, or host-matching behavior is required here.\\nprint(\"public issue smoke passed\")\\n')"
+    ],
+    "editable_paths": [
+      "src/flask"
+    ],
+    "hypotheses": [
+      {
+        "id": "rendering",
+        "description": "Routing retains subdomain metadata, but the routes CLI omits it when formatting output; fix the display without changing route registration.",
+        "prior": 0.3333333333333333
+      },
+      {
+        "id": "routing",
+        "description": "Routing itself loses declared subdomain metadata before the CLI sees it; investigate rule construction and retention.",
+        "prior": 0.3333333333333333
+      },
+      {
+        "id": "blueprint",
+        "description": "Blueprint registration loses its assigned subdomain, although direct rule registration retains it; investigate blueprint option propagation.",
+        "prior": 0.3333333333333333
+      }
+    ],
+    "experiments": [
+      {
+        "id": "direct-rule-has-subdomain",
+        "label": "Does routing retain a directly declared subdomain?",
+        "command": [
+          "<SETUP>/modern-venv312/bin/python",
+          "-W",
+          "ignore::DeprecationWarning",
+          "-c",
+          "import os,sys;sys.path.insert(0,os.path.join(os.getcwd(),'src'));exec('import flask\\napp = flask.Flask(\"probe\", root_path=\".\", static_folder=None)\\napp.add_url_rule(\"/x\", endpoint=\"item\", subdomain=\"admin\")\\nrule = next(app.url_map.iter_rules())\\nassert rule.subdomain == \"admin\", repr(rule.subdomain)\\nprint(\"direct rule retains subdomain\")\\n')"
+        ],
+        "cost_seconds": 1.0,
+        "likelihoods": {
+          "rendering": {
+            "pass": 0.95,
+            "fail": 0.050000000000000044
+          },
+          "routing": {
+            "pass": 0.05,
+            "fail": 0.95
+          },
+          "blueprint": {
+            "pass": 0.95,
+            "fail": 0.050000000000000044
+          }
+        }
+      },
+      {
+        "id": "blueprint-rule-has-subdomain",
+        "label": "Does blueprint registration retain its subdomain?",
+        "command": [
+          "<SETUP>/modern-venv312/bin/python",
+          "-W",
+          "ignore::DeprecationWarning",
+          "-c",
+          "import os,sys;sys.path.insert(0,os.path.join(os.getcwd(),'src'));exec('import flask\\napp = flask.Flask(\"probe\", root_path=\".\", static_folder=None)\\nbp = flask.Blueprint(\"alpha_group\", \"probe\", root_path=\".\")\\nbp.add_url_rule(\"/x\", endpoint=\"item\")\\napp.register_blueprint(bp, subdomain=\"admin\")\\nrule = next(app.url_map.iter_rules())\\nassert rule.subdomain == \"admin\", repr(rule.subdomain)\\nprint(\"blueprint rule retains subdomain\")\\n')"
+        ],
+        "cost_seconds": 1.0,
+        "likelihoods": {
+          "rendering": {
+            "pass": 0.95,
+            "fail": 0.050000000000000044
+          },
+          "routing": {
+            "pass": 0.05,
+            "fail": 0.95
+          },
+          "blueprint": {
+            "pass": 0.05,
+            "fail": 0.95
+          }
+        }
+      },
+      {
+        "id": "routes-displays-subdomain",
+        "label": "Does routes display retained subdomain information?",
+        "command": [
+          "<SETUP>/modern-venv312/bin/python",
+          "-W",
+          "ignore::DeprecationWarning",
+          "-c",
+          "import os,sys;sys.path.insert(0,os.path.join(os.getcwd(),'src'));exec('import flask\\napp = flask.Flask(\"probe\", root_path=\".\", static_folder=None)\\napp.add_url_rule(\"/x\", endpoint=\"item\", subdomain=\"admin\")\\nresult = app.test_cli_runner().invoke(args=[\"routes\"])\\nassert result.exit_code == 0, repr(result.exception)\\nassert \"admin\" in result.output, result.output\\nprint(\"routes displays subdomain\")\\n')"
+        ],
+        "cost_seconds": 1.0,
+        "likelihoods": {
+          "rendering": {
+            "pass": 0.05,
+            "fail": 0.95
+          },
+          "routing": {
+            "pass": 0.05,
+            "fail": 0.95
+          },
+          "blueprint": {
+            "pass": 0.05,
+            "fail": 0.95
+          }
+        }
+      }
+    ],
+    "task_input": {
+      "source": "Original issue prose fetched at runtime; withheld from public export pending dataset license clarification.",
+      "issue_url": "https://github.com/pallets/flask/issues/5004",
+      "runtime_text_sha256": "8a1f345c35427fdd3cef27eca7466333e533ba758effb706f4f0b403165bdfbf"
+    }
+  },
+  "pallets__flask-4045": {
+    "version": 1,
+    "verify": [
+      "<SETUP>/compat-venv312/bin/python",
+      "-W",
+      "ignore::DeprecationWarning",
+      "-c",
+      "import os,sys;sys.path.insert(0,os.path.join(os.getcwd(),'src'));exec('import flask\\n\\n# The issue requests an error for a dotted blueprint name, without\\n# specifying its concrete exception class.\\nrejected = False\\ntry:\\n    flask.Blueprint(\"section.child\", \"public_smoke\", root_path=\".\")\\nexcept Exception:\\n    rejected = True\\nassert rejected, \"A dotted blueprint name must be rejected during construction\"\\n\\napp = flask.Flask(\"public_smoke\", root_path=\".\")\\nplain = flask.Blueprint(\"section\", \"public_smoke\", root_path=\".\")\\nplain.add_url_rule(\"/hello\", endpoint=\"hello\", view_func=lambda: \"hello\")\\napp.register_blueprint(plain)\\nresponse = app.test_client().get(\"/hello\")\\nassert response.status_code == 200 and response.data == b\"hello\"\\nprint(\"public issue smoke passed\")\\n')"
+    ],
+    "editable_paths": [
+      "src/flask"
+    ],
+    "hypotheses": [
+      {
+        "id": "construction",
+        "description": "Blueprint construction lacks validation of dots in its name; enforce the requested rejection without breaking ordinary blueprints.",
+        "prior": 0.3333333333333333
+      },
+      {
+        "id": "ordinary_registration",
+        "description": "The visible symptom is caused by ordinary blueprint registration or routing being broken, rather than missing name validation.",
+        "prior": 0.3333333333333333
+      },
+      {
+        "id": "namespace",
+        "description": "The naming problem is in later namespace or nested-blueprint handling while construction already validates the requested invariant.",
+        "prior": 0.3333333333333333
+      }
+    ],
+    "experiments": [
+      {
+        "id": "dotted-construction-rejected",
+        "label": "Does construction itself reject dotted names?",
+        "command": [
+          "<SETUP>/compat-venv312/bin/python",
+          "-W",
+          "ignore::DeprecationWarning",
+          "-c",
+          "import os,sys;sys.path.insert(0,os.path.join(os.getcwd(),'src'));exec('import flask\\ntry:\\n    flask.Blueprint(\"area.view\", \"probe\", root_path=\".\")\\nexcept Exception:\\n    print(\"construction rejected dotted name\")\\nelse:\\n    raise AssertionError(\"construction accepted dotted name\")\\n')"
+        ],
+        "cost_seconds": 1.0,
+        "likelihoods": {
+          "construction": {
+            "pass": 0.05,
+            "fail": 0.95
+          },
+          "ordinary_registration": {
+            "pass": 0.95,
+            "fail": 0.050000000000000044
+          },
+          "namespace": {
+            "pass": 0.95,
+            "fail": 0.050000000000000044
+          }
+        }
+      },
+      {
+        "id": "ordinary-blueprint-works",
+        "label": "Can a plain blueprint still register a route?",
+        "command": [
+          "<SETUP>/compat-venv312/bin/python",
+          "-W",
+          "ignore::DeprecationWarning",
+          "-c",
+          "import os,sys;sys.path.insert(0,os.path.join(os.getcwd(),'src'));exec('import flask\\napp = flask.Flask(\"probe\", root_path=\".\")\\nbp = flask.Blueprint(\"area\", \"probe\", root_path=\".\")\\nbp.add_url_rule(\"/ok\", endpoint=\"show\", view_func=lambda: \"ok\")\\napp.register_blueprint(bp)\\nassert app.test_client().get(\"/ok\").data == b\"ok\"\\nprint(\"ordinary blueprint works\")\\n')"
+        ],
+        "cost_seconds": 1.0,
+        "likelihoods": {
+          "construction": {
+            "pass": 0.95,
+            "fail": 0.050000000000000044
+          },
+          "ordinary_registration": {
+            "pass": 0.05,
+            "fail": 0.95
+          },
+          "namespace": {
+            "pass": 0.95,
+            "fail": 0.050000000000000044
+          }
+        }
+      }
+    ],
+    "task_input": {
+      "source": "Original issue prose fetched at runtime; withheld from public export pending dataset license clarification.",
+      "issue_url": "https://github.com/pallets/flask/issues/4041",
+      "runtime_text_sha256": "8a196755a30b6e9575830574d9ea5b392bbe7685ffd7fb91acba6d604f198fb0"
+    }
+  }
+}

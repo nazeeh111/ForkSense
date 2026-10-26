@@ -9,7 +9,7 @@ ForkSense v0.1.0 is a research preview for trusted local repositories. It provid
 - The learned cost model did not outperform the heuristic. It does not learn correctness, calibrated likelihoods or optimal branching/stopping.
 - Repeated seeds reuse the same tasks. Three family clusters provide little support for population-wide statistical conclusions.
 - The root UCT proxy is weaker than a full search implementation and must not stand in for agent-mcts, Saplings or SWE-Search performance.
-- Full repeated ordinary-agent, parallel-agent and real-repository comparisons remain open. Selected issue reproductions, if added, are not a SWE-bench score.
+- A corrected live pilot repeats one Flask routes issue three times per mode: both ordinary Codex and ForkSense resolve 3/3 official evaluations at about 69.8 seconds. Manual-plan authoring cost is unmeasured, the exact configured model identifier was not independently recorded, and ordinary logs are truncated. Broader real-repository, parallel-agent and full tree-search comparisons remain open. The pilot is not a SWE-bench score.
 
 ## Worktrees isolate edits, not machines
 
@@ -27,7 +27,7 @@ The verifier must represent the requested behavior and include independent tests
 
 Candidates are restricted to declared source paths and checked for conventional test/fixture names. Unusual test layouts or executable source masquerading as a test still require user judgment. Test files in the base worktree are preserved during fresh verification; a candidate's modified tests do not become the judge.
 
-External regular files explicitly referenced in verifier arguments are copied and hashed before baseline execution. The original paths execute to preserve `__file__`, sibling imports and fixture discovery. Hashes of the originals and evidence copies are checked before and after verification. Imported packages, dynamically discovered files, services, interpreter behavior and all dependencies are not recursively frozen. A hermetic evaluation environment is not implemented.
+External regular files explicitly referenced in verifier arguments are copied and hashed before baseline execution. The original paths execute to preserve `__file__`, sibling imports and fixture discovery. Hashes of the originals and evidence copies are checked before and after verification. Direct executable verifier scripts are included. Explicit external verifier directories are unsupported. Imported packages, dynamically discovered files, services, interpreter behavior and all dependencies are not recursively frozen. A hermetic evaluation environment is not implemented.
 
 ## Budgets and cleanup
 

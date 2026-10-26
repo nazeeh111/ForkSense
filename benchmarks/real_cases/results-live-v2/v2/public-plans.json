@@ -1,0 +1,118 @@
+{
+  "pallets__flask-5063": {
+    "version": 1,
+    "verify": [
+      "<SETUP>/modern-venv312/bin/python",
+      "-W",
+      "ignore::DeprecationWarning",
+      "-c",
+      "import os,sys;sys.path.insert(0,os.path.join(os.getcwd(),'src'));exec('import flask\\nfrom click.testing import CliRunner\\nfrom flask.cli import FlaskGroup\\n\\napp = flask.Flask(\"public_smoke\", root_path=\".\", static_folder=None)\\napp.config[\"SERVER_NAME\"] = \"test.local\"\\nadmin = flask.Blueprint(\"alpha_group\", \"public_smoke\", root_path=\".\")\\nother = flask.Blueprint(\"beta_group\", \"public_smoke\", root_path=\".\")\\nadmin.add_url_rule(\"/dashboard\", endpoint=\"alpha_view\", view_func=lambda: \"a\")\\nother.add_url_rule(\"/metrics\", endpoint=\"beta_view\", view_func=lambda: \"b\")\\napp.register_blueprint(admin, subdomain=\"admin\")\\napp.register_blueprint(other, subdomain=\"test\")\\nresult = CliRunner().invoke(FlaskGroup(create_app=lambda: app), [\"routes\"])\\nassert result.exit_code == 0, repr(result.exception)\\noutput = result.output\\nassert \"admin\" in output and \"test\" in output, output\\nassert \"/dashboard\" in output and \"/metrics\" in output and \"GET\" in output, output\\n# The issue permits a domain or subdomain display; no particular header,\\n# formatting, sorting mode, or host-matching behavior is required here.\\nprint(\"public issue smoke passed\")\\n')"
+    ],
+    "editable_paths": [
+      "src/flask"
+    ],
+    "repair_constraints": "This is a frozen trusted-repository benchmark. You have one repair attempt within a 180-second trial. Edit only the permitted source paths. Preserve all tests and configuration. Do not commit, push, use network, inspect credentials, install packages, change Git state, read sibling or parent directories, or modify other worktrees. Use only this workspace's source and existing tests, the original task text and the supplied public smoke command. Do not retrieve original issues, fixing pull requests, reference material, evaluator tests or solutions. Implement a real fix rather than a test-specific workaround.",
+    "hypotheses": [
+      {
+        "id": "rendering",
+        "description": "Routing retains subdomain metadata, but the routes CLI omits it when formatting output; fix the display without changing route registration.",
+        "prior": 0.3333333333333333
+      },
+      {
+        "id": "routing",
+        "description": "Routing itself loses declared subdomain metadata before the CLI sees it; investigate rule construction and retention.",
+        "prior": 0.3333333333333333
+      },
+      {
+        "id": "blueprint",
+        "description": "Blueprint registration loses its assigned subdomain, although direct rule registration retains it; investigate blueprint option propagation.",
+        "prior": 0.3333333333333333
+      }
+    ],
+    "experiments": [
+      {
+        "id": "direct-rule-has-subdomain",
+        "label": "Does routing retain a directly declared subdomain?",
+        "command": [
+          "<SETUP>/modern-venv312/bin/python",
+          "-W",
+          "ignore::DeprecationWarning",
+          "-c",
+          "import os,sys;sys.path.insert(0,os.path.join(os.getcwd(),'src'));exec('import flask\\napp = flask.Flask(\"probe\", root_path=\".\", static_folder=None)\\napp.add_url_rule(\"/x\", endpoint=\"item\", subdomain=\"admin\")\\nrule = next(app.url_map.iter_rules())\\nassert rule.subdomain == \"admin\", repr(rule.subdomain)\\nprint(\"direct rule retains subdomain\")\\n')"
+        ],
+        "cost_seconds": 1.0,
+        "likelihoods": {
+          "rendering": {
+            "pass": 0.95,
+            "fail": 0.050000000000000044
+          },
+          "routing": {
+            "pass": 0.05,
+            "fail": 0.95
+          },
+          "blueprint": {
+            "pass": 0.95,
+            "fail": 0.050000000000000044
+          }
+        }
+      },
+      {
+        "id": "blueprint-rule-has-subdomain",
+        "label": "Does blueprint registration retain its subdomain?",
+        "command": [
+          "<SETUP>/modern-venv312/bin/python",
+          "-W",
+          "ignore::DeprecationWarning",
+          "-c",
+          "import os,sys;sys.path.insert(0,os.path.join(os.getcwd(),'src'));exec('import flask\\napp = flask.Flask(\"probe\", root_path=\".\", static_folder=None)\\nbp = flask.Blueprint(\"alpha_group\", \"probe\", root_path=\".\")\\nbp.add_url_rule(\"/x\", endpoint=\"item\")\\napp.register_blueprint(bp, subdomain=\"admin\")\\nrule = next(app.url_map.iter_rules())\\nassert rule.subdomain == \"admin\", repr(rule.subdomain)\\nprint(\"blueprint rule retains subdomain\")\\n')"
+        ],
+        "cost_seconds": 1.0,
+        "likelihoods": {
+          "rendering": {
+            "pass": 0.95,
+            "fail": 0.050000000000000044
+          },
+          "routing": {
+            "pass": 0.05,
+            "fail": 0.95
+          },
+          "blueprint": {
+            "pass": 0.05,
+            "fail": 0.95
+          }
+        }
+      },
+      {
+        "id": "routes-displays-subdomain",
+        "label": "Does routes display retained subdomain information?",
+        "command": [
+          "<SETUP>/modern-venv312/bin/python",
+          "-W",
+          "ignore::DeprecationWarning",
+          "-c",
+          "import os,sys;sys.path.insert(0,os.path.join(os.getcwd(),'src'));exec('import flask\\nfrom click.testing import CliRunner\\nfrom flask.cli import FlaskGroup\\napp = flask.Flask(\"probe\", root_path=\".\", static_folder=None)\\napp.add_url_rule(\"/x\", endpoint=\"item\", subdomain=\"admin\")\\nresult = CliRunner().invoke(FlaskGroup(create_app=lambda: app), [\"routes\"])\\nassert result.exit_code == 0, repr(result.exception)\\nassert \"admin\" in result.output, result.output\\nprint(\"routes displays subdomain\")\\n')"
+        ],
+        "cost_seconds": 1.0,
+        "likelihoods": {
+          "rendering": {
+            "pass": 0.05,
+            "fail": 0.95
+          },
+          "routing": {
+            "pass": 0.05,
+            "fail": 0.95
+          },
+          "blueprint": {
+            "pass": 0.05,
+            "fail": 0.95
+          }
+        }
+      }
+    ],
+    "task_input": {
+      "source": "Original issue prose fetched at runtime; withheld from public export pending dataset license clarification.",
+      "issue_url": "https://github.com/pallets/flask/issues/5004",
+      "runtime_text_sha256": "8a1f345c35427fdd3cef27eca7466333e533ba758effb706f4f0b403165bdfbf"
+    }
+  }
+}

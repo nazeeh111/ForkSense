@@ -1,0 +1,123 @@
+{
+  "seed": 20261026,
+  "schedule": [
+    {
+      "case": "pallets__flask-4045",
+      "repeat": 0,
+      "mode": "ordinary",
+      "pair_index": 0,
+      "original_launch_order_label": 0,
+      "schedule_index": 0
+    },
+    {
+      "case": "pallets__flask-4045",
+      "repeat": 0,
+      "mode": "forksense",
+      "pair_index": 0,
+      "original_launch_order_label": 2,
+      "schedule_index": 1
+    },
+    {
+      "case": "pallets__flask-4045",
+      "repeat": 2,
+      "mode": "ordinary",
+      "pair_index": 1,
+      "original_launch_order_label": 2,
+      "schedule_index": 2
+    },
+    {
+      "case": "pallets__flask-4045",
+      "repeat": 2,
+      "mode": "forksense",
+      "pair_index": 1,
+      "original_launch_order_label": 4,
+      "schedule_index": 3
+    },
+    {
+      "case": "pallets__flask-5063",
+      "repeat": 2,
+      "mode": "forksense",
+      "pair_index": 2,
+      "original_launch_order_label": 4,
+      "schedule_index": 4
+    },
+    {
+      "case": "pallets__flask-5063",
+      "repeat": 2,
+      "mode": "ordinary",
+      "pair_index": 2,
+      "original_launch_order_label": 6,
+      "schedule_index": 5
+    },
+    {
+      "case": "pallets__flask-5063",
+      "repeat": 1,
+      "mode": "forksense",
+      "pair_index": 3,
+      "original_launch_order_label": 6,
+      "schedule_index": 6
+    },
+    {
+      "case": "pallets__flask-5063",
+      "repeat": 1,
+      "mode": "ordinary",
+      "pair_index": 3,
+      "original_launch_order_label": 8,
+      "schedule_index": 7
+    },
+    {
+      "case": "pallets__flask-4045",
+      "repeat": 1,
+      "mode": "ordinary",
+      "pair_index": 4,
+      "original_launch_order_label": 8,
+      "schedule_index": 8
+    },
+    {
+      "case": "pallets__flask-4045",
+      "repeat": 1,
+      "mode": "forksense",
+      "pair_index": 4,
+      "original_launch_order_label": 10,
+      "schedule_index": 9
+    },
+    {
+      "case": "pallets__flask-5063",
+      "repeat": 0,
+      "mode": "ordinary",
+      "pair_index": 5,
+      "original_launch_order_label": 10,
+      "schedule_index": 10
+    },
+    {
+      "case": "pallets__flask-5063",
+      "repeat": 0,
+      "mode": "forksense",
+      "pair_index": 5,
+      "original_launch_order_label": 12,
+      "schedule_index": 11
+    }
+  ],
+  "maximum_trial_seconds": 180.0,
+  "maximum_agent_calls_per_trial": 1,
+  "agent_timeout_rule": "Both modes reserve 25 percent of remaining time for extraction and public verification.",
+  "manual_plan_authoring_seconds": null,
+  "runtime_plan_setup_seconds": 0.27175237494520843,
+  "versions": {
+    "codex": "codex-cli 0.164.0",
+    "python": "3.14.7 (v3.14.7:823f0323ee6, Aug  5 2026, 07:07:01) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "model_override": null
+  },
+  "files": {
+    "benchmarks/real_cases/pilot.py": "4266574518fbe032b99f285d579ea0196d1d8771d69ef6af05ce137b8acdafe7",
+    "benchmarks/real_cases/pilot_specs.py": "d3799db7c64119d7af5fab04cc80912e4a0b24033b56e3d7d9f2624e4c724e1e",
+    "benchmarks/real_cases/manifest.json": "5626e7c72f6127df740e3ce1e1be8fe51bf6c9380d79f8b97736a14564313a3d",
+    "benchmarks/real_cases/evaluate.py": "9f9374a776660e4795b7e117497245e8c021d199d6742f37d438c3837ad874e4"
+  },
+  "plan_sha256": {
+    "pallets__flask-4045": "b50a7b6e271357916b9a06820664d69fba1936a509afdd0375f5dedb8f4d6fb8",
+    "pallets__flask-5063": "497b04080f955f567979cee1d77c0d34f547f03a7d3905abc8401b444aca8841"
+  },
+  "private_predeclared_sha256": "cf421971907bcb295020d2461f85c8f3f9a482d831ffdd4f084e203986dfde2d",
+  "public_export_note": "Original plan hashes commit to private original text and local interpreter paths; public normalized plans omit original issue prose and are not byte-identical."
+}
