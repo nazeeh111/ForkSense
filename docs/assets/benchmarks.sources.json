@@ -1,0 +1,40 @@
+{
+  "verified_against": "benchmarks/results-v2/artifact-manifest.json",
+  "inputs": [
+    {
+      "path": "benchmarks/results-v2/summary.json",
+      "sha256": "e55e802a897bcc6a274d2e7db78e2d2e1248b4f2a04a0d1229b622ad4bf72f00",
+      "bytes": 15900,
+      "public_url": "https://github.com/nazeeh111/ForkSense/blob/main/benchmarks/results-v2/summary.json"
+    },
+    {
+      "path": "benchmarks/results-v2/additional-analysis.json",
+      "sha256": "2ca0265f090d18b9e4e51c9ca6bc8940525d9db4e6cc1d54a8d13744da1708a7",
+      "bytes": 6763,
+      "public_url": "https://github.com/nazeeh111/ForkSense/blob/main/benchmarks/results-v2/additional-analysis.json"
+    },
+    {
+      "path": "benchmarks/results-v2/trials.jsonl",
+      "sha256": "5db80322964e7f29f03828ee859e197f110680277820bfe584d24ab19c95efb7",
+      "bytes": 2188814,
+      "public_url": "https://github.com/nazeeh111/ForkSense/blob/main/benchmarks/results-v2/trials.jsonl"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "docs/assets/benchmarks.svg",
+      "sha256": "b3859138d30b2c69c7173a2731500b10d33691db42568c53902cb7e8ada8a941",
+      "bytes": 15474,
+      "public_url": "https://github.com/nazeeh111/ForkSense/blob/main/docs/assets/benchmarks.svg"
+    },
+    {
+      "path": "docs/assets/benchmarks.png",
+      "sha256": "d666deb50527f09a37372ca712f0ad833a8ed02700b72715709d6a16576fb235",
+      "bytes": 205723,
+      "public_url": "https://github.com/nazeeh111/ForkSense/blob/main/docs/assets/benchmarks.png"
+    }
+  ],
+  "generator": "benchmarks/plot.py",
+  "public_generator_url": "https://github.com/nazeeh111/ForkSense/blob/main/benchmarks/plot.py",
+  "note": "Paths are exact release artifact paths; public availability must be verified after publication."
+}

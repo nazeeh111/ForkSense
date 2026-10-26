@@ -1,0 +1,2513 @@
+[
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "trailing separator normalization",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(cache_key('/api/', {}) == cache_key('/api', {}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.10198699997272342,
+    "task_id": "cache-0",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "parameter ordering",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'b': 2, 'a': 1}) == cache_key('/x', {'a': 1, 'b': 2}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.06975241703912616,
+    "task_id": "cache-0",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "parameter name case",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'A': 1}) != cache_key('/x', {'a': 1}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.11591616703663021,
+    "task_id": "cache-0",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "trailing separator normalization",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(cache_key('/api/', {}) == cache_key('/api', {}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.1634279590798542,
+    "task_id": "cache-0",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "parameter ordering",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'b': 2, 'a': 1}) == cache_key('/x', {'a': 1, 'b': 2}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.09616025001741946,
+    "task_id": "cache-0",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "parameter name case",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'A': 1}) != cache_key('/x', {'a': 1}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.044114041957072914,
+    "task_id": "cache-0",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "trailing separator normalization",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(cache_key('/api/', {}) == cache_key('/api', {}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.11009608302265406,
+    "task_id": "cache-0",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "parameter ordering",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'b': 2, 'a': 1}) == cache_key('/x', {'a': 1, 'b': 2}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.04847887495998293,
+    "task_id": "cache-0",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "parameter name case",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'A': 1}) != cache_key('/x', {'a': 1}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.1604926249710843,
+    "task_id": "cache-0",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "trailing separator normalization",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(cache_key('/api/', {}) == cache_key('/api', {}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.05714787496253848,
+    "task_id": "cache-1",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "parameter ordering",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'b': 2, 'a': 1}) == cache_key('/x', {'a': 1, 'b': 2}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.07239562505856156,
+    "task_id": "cache-1",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "parameter name case",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'A': 1}) != cache_key('/x', {'a': 1}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.12615312496200204,
+    "task_id": "cache-1",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "trailing separator normalization",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(cache_key('/api/', {}) == cache_key('/api', {}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.05195329198613763,
+    "task_id": "cache-1",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "parameter ordering",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'b': 2, 'a': 1}) == cache_key('/x', {'a': 1, 'b': 2}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.12217220896854997,
+    "task_id": "cache-1",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "parameter name case",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'A': 1}) != cache_key('/x', {'a': 1}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.21064370800741017,
+    "task_id": "cache-1",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "trailing separator normalization",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(cache_key('/api/', {}) == cache_key('/api', {}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.055897042038850486,
+    "task_id": "cache-1",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "parameter ordering",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'b': 2, 'a': 1}) == cache_key('/x', {'a': 1, 'b': 2}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.10173624998424202,
+    "task_id": "cache-1",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "parameter name case",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'A': 1}) != cache_key('/x', {'a': 1}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.04573804105166346,
+    "task_id": "cache-1",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "trailing separator normalization",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(cache_key('/api/', {}) == cache_key('/api', {}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.20980716706253588,
+    "task_id": "cache-2",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "parameter ordering",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'b': 2, 'a': 1}) == cache_key('/x', {'a': 1, 'b': 2}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.10560654196888208,
+    "task_id": "cache-2",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "parameter name case",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'A': 1}) != cache_key('/x', {'a': 1}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.06460108305327594,
+    "task_id": "cache-2",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "trailing separator normalization",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(cache_key('/api/', {}) == cache_key('/api', {}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.08002858306281269,
+    "task_id": "cache-2",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "parameter ordering",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'b': 2, 'a': 1}) == cache_key('/x', {'a': 1, 'b': 2}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.18531999993138015,
+    "task_id": "cache-2",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "parameter name case",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'A': 1}) != cache_key('/x', {'a': 1}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.1677898340858519,
+    "task_id": "cache-2",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "trailing separator normalization",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(cache_key('/api/', {}) == cache_key('/api', {}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.1687185000628233,
+    "task_id": "cache-2",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "parameter ordering",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'b': 2, 'a': 1}) == cache_key('/x', {'a': 1, 'b': 2}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.07280091708526015,
+    "task_id": "cache-2",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "parameter name case",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'A': 1}) != cache_key('/x', {'a': 1}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.05060387507546693,
+    "task_id": "cache-2",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "page numbering origin",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(page([1, 2, 3, 4], 1, 2) == [3, 4])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.0645120000699535,
+    "task_id": "pagination-0",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "exclusive slice end",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(len(page(list(range(20)), 1, 4)) == 4)\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.14437758293934166,
+    "task_id": "pagination-0",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "zero input validation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(rejects(lambda: page([1, 2], 0, 1)))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.14026300003752112,
+    "task_id": "pagination-0",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "page numbering origin",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(page([1, 2, 3, 4], 1, 2) == [3, 4])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.09606708295177668,
+    "task_id": "pagination-0",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "exclusive slice end",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(len(page(list(range(20)), 1, 4)) == 4)\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.11641229200176895,
+    "task_id": "pagination-0",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "zero input validation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(rejects(lambda: page([1, 2], 0, 1)))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.11955358309205621,
+    "task_id": "pagination-0",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "page numbering origin",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(page([1, 2, 3, 4], 1, 2) == [3, 4])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.10099783295299858,
+    "task_id": "pagination-0",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "exclusive slice end",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(len(page(list(range(20)), 1, 4)) == 4)\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.08170508407056332,
+    "task_id": "pagination-0",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "zero input validation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(rejects(lambda: page([1, 2], 0, 1)))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.07279850007034838,
+    "task_id": "pagination-0",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "page numbering origin",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(page([1, 2, 3, 4], 1, 2) == [3, 4])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.07379904203116894,
+    "task_id": "pagination-1",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "exclusive slice end",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(len(page(list(range(20)), 1, 4)) == 4)\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.04562224994879216,
+    "task_id": "pagination-1",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "zero input validation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(rejects(lambda: page([1, 2], 0, 1)))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.06387575005646795,
+    "task_id": "pagination-1",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "page numbering origin",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(page([1, 2, 3, 4], 1, 2) == [3, 4])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.08155133295804262,
+    "task_id": "pagination-1",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "exclusive slice end",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(len(page(list(range(20)), 1, 4)) == 4)\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.09537437499966472,
+    "task_id": "pagination-1",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "zero input validation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(rejects(lambda: page([1, 2], 0, 1)))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.08077108405996114,
+    "task_id": "pagination-1",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "page numbering origin",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(page([1, 2, 3, 4], 1, 2) == [3, 4])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.07847520790528506,
+    "task_id": "pagination-1",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "exclusive slice end",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(len(page(list(range(20)), 1, 4)) == 4)\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.172830207971856,
+    "task_id": "pagination-1",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "zero input validation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(rejects(lambda: page([1, 2], 0, 1)))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.20640600007027388,
+    "task_id": "pagination-1",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "page numbering origin",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(page([1, 2, 3, 4], 1, 2) == [3, 4])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.10571274999529123,
+    "task_id": "pagination-2",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "exclusive slice end",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(len(page(list(range(20)), 1, 4)) == 4)\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.10243750002700835,
+    "task_id": "pagination-2",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "zero input validation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(rejects(lambda: page([1, 2], 0, 1)))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.10752570908516645,
+    "task_id": "pagination-2",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "page numbering origin",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(page([1, 2, 3, 4], 1, 2) == [3, 4])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.18866987503133714,
+    "task_id": "pagination-2",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "exclusive slice end",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(len(page(list(range(20)), 1, 4)) == 4)\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.07549895800184458,
+    "task_id": "pagination-2",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "zero input validation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(rejects(lambda: page([1, 2], 0, 1)))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.09235175000503659,
+    "task_id": "pagination-2",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "page numbering origin",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(page([1, 2, 3, 4], 1, 2) == [3, 4])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.10702112503349781,
+    "task_id": "pagination-2",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "exclusive slice end",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(len(page(list(range(20)), 1, 4)) == 4)\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.16932720795739442,
+    "task_id": "pagination-2",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "zero input validation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(rejects(lambda: page([1, 2], 0, 1)))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.06452016695402563,
+    "task_id": "pagination-2",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "quoted field parsing",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(parse_row('a,\"b,c\"') == ['a', 'b,c'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.10605479194782674,
+    "task_id": "csv-0",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "spaces after delimiter",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a, b') == ['a', 'b'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.12288733397144824,
+    "task_id": "csv-0",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "field case preservation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a,B') == ['a', 'B'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.11645433399826288,
+    "task_id": "csv-0",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "quoted field parsing",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(parse_row('a,\"b,c\"') == ['a', 'b,c'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.10232441604603082,
+    "task_id": "csv-0",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "spaces after delimiter",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a, b') == ['a', 'b'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.15567533299326897,
+    "task_id": "csv-0",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "field case preservation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a,B') == ['a', 'B'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.20810791698750108,
+    "task_id": "csv-0",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "quoted field parsing",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(parse_row('a,\"b,c\"') == ['a', 'b,c'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.1651671250583604,
+    "task_id": "csv-0",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "spaces after delimiter",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a, b') == ['a', 'b'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.19272475002799183,
+    "task_id": "csv-0",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "field case preservation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a,B') == ['a', 'B'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.05656283302232623,
+    "task_id": "csv-0",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "quoted field parsing",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(parse_row('a,\"b,c\"') == ['a', 'b,c'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.1166097919922322,
+    "task_id": "csv-1",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "spaces after delimiter",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a, b') == ['a', 'b'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.142117541981861,
+    "task_id": "csv-1",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "field case preservation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a,B') == ['a', 'B'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.12086845899466425,
+    "task_id": "csv-1",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "quoted field parsing",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(parse_row('a,\"b,c\"') == ['a', 'b,c'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.08514791703782976,
+    "task_id": "csv-1",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "spaces after delimiter",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a, b') == ['a', 'b'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.11471729201730341,
+    "task_id": "csv-1",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "field case preservation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a,B') == ['a', 'B'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.07067349995486438,
+    "task_id": "csv-1",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "quoted field parsing",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(parse_row('a,\"b,c\"') == ['a', 'b,c'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.2712970420252532,
+    "task_id": "csv-1",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "spaces after delimiter",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a, b') == ['a', 'b'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.5062207500450313,
+    "task_id": "csv-1",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "field case preservation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a,B') == ['a', 'B'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.15762674994766712,
+    "task_id": "csv-1",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "quoted field parsing",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(parse_row('a,\"b,c\"') == ['a', 'b,c'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.268793374998495,
+    "task_id": "csv-2",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "spaces after delimiter",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a, b') == ['a', 'b'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.1996436669724062,
+    "task_id": "csv-2",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "field case preservation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a,B') == ['a', 'B'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.2980748750269413,
+    "task_id": "csv-2",
+    "repeat": 0
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "quoted field parsing",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(parse_row('a,\"b,c\"') == ['a', 'b,c'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.3982632081024349,
+    "task_id": "csv-2",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "spaces after delimiter",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a, b') == ['a', 'b'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.12564233306329697,
+    "task_id": "csv-2",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "field case preservation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a,B') == ['a', 'B'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.30825033294968307,
+    "task_id": "csv-2",
+    "repeat": 1
+  },
+  {
+    "experiment": {
+      "id": "p0",
+      "label": "quoted field parsing",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(4000):\n        outcome = bool(parse_row('a,\"b,c\"') == ['a', 'b,c'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.15,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.12296829209662974,
+    "task_id": "csv-2",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p1",
+      "label": "spaces after delimiter",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a, b') == ['a', 'b'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h1": {
+          "pass": 0.02,
+          "fail": 0.98
+        },
+        "h2": {
+          "pass": 0.98,
+          "fail": 0.02
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.27841341705061495,
+    "task_id": "csv-2",
+    "repeat": 2
+  },
+  {
+    "experiment": {
+      "id": "p2",
+      "label": "field case preservation",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+        "-B",
+        "-c",
+        "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a,B') == ['a', 'B'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+      ],
+      "cost_seconds": 0.04,
+      "likelihoods": {
+        "h0": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h1": {
+          "pass": 0.98,
+          "fail": 0.02
+        },
+        "h2": {
+          "pass": 0.02,
+          "fail": 0.98
+        }
+      }
+    },
+    "hypothesis_count": 3,
+    "seconds": 0.1520075419684872,
+    "task_id": "csv-2",
+    "repeat": 2
+  }
+]

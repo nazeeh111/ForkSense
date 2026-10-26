@@ -1,0 +1,33 @@
+name: Bug report
+description: Report a reproducible CLI, preservation or report failure.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: "Share a minimal reproduction. Redact secrets, private source and machine-specific paths before attaching evidence."
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and observed behavior
+      description: Include the exact command and status/error fields.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: A small trusted fixture or public base commit and setup steps.
+    validations:
+      required: true
+  - type: textarea
+    id: versions
+    attributes:
+      label: Versions and environment
+      description: ForkSense, Python, Git, native agent CLI and operating system.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Redacted evidence
+      description: Report status, relevant step, verifier behavior and checks already tried. Do not attach credentials or full private transcripts.

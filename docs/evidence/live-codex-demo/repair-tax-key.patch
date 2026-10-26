@@ -1,0 +1,13 @@
+diff --git a/checkout.py b/checkout.py
+index e413644..e32afb4 100644
+--- a/checkout.py
++++ b/checkout.py
+@@ -2,7 +2,7 @@
+ _cache = {}
+ 
+ def total(price, *, tax=0, discount=0):
+-    key = (price, discount)
++    key = (price, tax, discount)
+     if key not in _cache:
+         _cache[key] = round(price * (1 - discount) * (1 + tax), 2)
+     return _cache[key]

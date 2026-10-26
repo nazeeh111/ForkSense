@@ -1,0 +1,37 @@
+name: Reproducible benchmark case
+description: Propose a frozen coding task with independent tests and a fair comparison.
+title: "[Case] "
+body:
+  - type: textarea
+    id: source
+    attributes:
+      label: Repository, frozen base commit and task
+      description: Link the public source and describe the required behavior without exposing a reference patch to the agent.
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Independent test contract and provenance
+      description: Explain what the agent can see, where evaluator-only material lives and when the tests were frozen.
+    validations:
+      required: true
+  - type: textarea
+    id: uncertainty
+    attributes:
+      label: Competing explanations and useful diagnostics
+      description: Describe the uncertainty. Distinguish supplied hypotheses from explanations actually discovered by an agent.
+    validations:
+      required: true
+  - type: textarea
+    id: comparison
+    attributes:
+      label: Setup, budgets and comparisons
+      description: Record agent/version, ordinary-agent baseline, planning overhead, wall time, total compute and repeated trials. Include failures and unknown usage.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and limits
+      description: Link redacted reports and exact commands. State missing checks and avoid turning selected cases into a benchmark-wide score.

@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+build/
+dist/
+.forksense/
+.local-evidence/
+# Task-local history and interrupted duplicate benchmark; complete evidence is public.
+TASK_STATE.md
+benchmarks/results-v1/

@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="900" viewBox="0 0 1480 900" role="img" aria-labelledby="title desc">
+<title id="title">Controlled prepared-repair microbenchmark</title>
+<desc id="desc">Measured policy results on nine held-out synthetic tasks from three cause families, repeated ten times. Adaptive and fixed three both resolve all tasks; the learned cost ranking does not improve on the heuristic. No live coding models were benchmarked.</desc>
+<rect x="0.000" y="0.000" width="1480.000" height="900.000" fill="#f6f5ef"/>
+<text x="52.000" y="55.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" font-weight="700" text-anchor="start" fill="#5e665c">FORKSENSE / EVALUATION</text>
+<text x="52.000" y="108.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="34" font-weight="700" text-anchor="start" fill="#242923">Controlled prepared-repair microbenchmark</text>
+<text x="52.000" y="147.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="21" font-weight="400" text-anchor="start" fill="#5e665c">9 held-out tasks  /  3 cause families  /  10 repeats  /  zero model calls</text>
+<line x1="52.000" y1="175.000" x2="1428.000" y2="175.000" stroke="#d6d9cf" stroke-width="1"/>
+<text x="310.000" y="217.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#242923">Resolved</text>
+<text x="310.000" y="244.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#5e665c">95% family bootstrap</text>
+<text x="705.000" y="217.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#242923">Commands</text>
+<text x="705.000" y="244.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#5e665c">mean per trial</text>
+<text x="1110.000" y="217.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#242923">Summed process time</text>
+<text x="1110.000" y="244.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" font-weight="400" text-anchor="start" fill="#5e665c">seconds, mean per trial</text>
+<text x="52.000" y="301.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="21" font-weight="400" text-anchor="start" fill="#242923">Single attempt</text>
+<rect x="310.000" y="277.000" width="240.000" height="25.000" fill="#e6e8df"/>
+<rect x="310.000" y="277.000" width="80.000" height="25.000" fill="#8b958a"/>
+<text x="562.000" y="298.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">33%</text>
+<rect x="705.000" y="277.000" width="210.000" height="25.000" fill="#e6e8df"/>
+<rect x="705.000" y="277.000" width="70.000" height="25.000" fill="#8b958a"/>
+<text x="927.000" y="298.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">1.00</text>
+<rect x="1110.000" y="277.000" width="210.000" height="25.000" fill="#e6e8df"/>
+<rect x="1110.000" y="277.000" width="65.218" height="25.000" fill="#8b958a"/>
+<text x="1332.000" y="298.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">0.248</text>
+<line x1="390.000" y1="290.000" x2="390.000" y2="290.000" stroke="#242923" stroke-width="2"/>
+<line x1="390.000" y1="284.000" x2="390.000" y2="296.000" stroke="#242923" stroke-width="2"/>
+<line x1="390.000" y1="284.000" x2="390.000" y2="296.000" stroke="#242923" stroke-width="2"/>
+<text x="52.000" y="359.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="21" font-weight="400" text-anchor="start" fill="#242923">Fixed 3, concurrent</text>
+<rect x="310.000" y="335.000" width="240.000" height="25.000" fill="#e6e8df"/>
+<rect x="310.000" y="335.000" width="240.000" height="25.000" fill="#8b958a"/>
+<text x="562.000" y="356.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">100%</text>
+<rect x="705.000" y="335.000" width="210.000" height="25.000" fill="#e6e8df"/>
+<rect x="705.000" y="335.000" width="210.000" height="25.000" fill="#8b958a"/>
+<text x="927.000" y="356.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">3.00</text>
+<rect x="1110.000" y="335.000" width="210.000" height="25.000" fill="#e6e8df"/>
+<rect x="1110.000" y="335.000" width="187.182" height="25.000" fill="#8b958a"/>
+<text x="1332.000" y="356.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">0.713</text>
+<line x1="550.000" y1="348.000" x2="550.000" y2="348.000" stroke="#242923" stroke-width="2"/>
+<line x1="550.000" y1="342.000" x2="550.000" y2="354.000" stroke="#242923" stroke-width="2"/>
+<line x1="550.000" y1="342.000" x2="550.000" y2="354.000" stroke="#242923" stroke-width="2"/>
+<text x="52.000" y="417.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="21" font-weight="400" text-anchor="start" fill="#242923">Random diagnostic</text>
+<rect x="310.000" y="393.000" width="240.000" height="25.000" fill="#e6e8df"/>
+<rect x="310.000" y="393.000" width="192.000" height="25.000" fill="#8b958a"/>
+<text x="562.000" y="414.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">80%</text>
+<rect x="705.000" y="393.000" width="210.000" height="25.000" fill="#e6e8df"/>
+<rect x="705.000" y="393.000" width="164.889" height="25.000" fill="#8b958a"/>
+<text x="927.000" y="414.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">2.36</text>
+<rect x="1110.000" y="393.000" width="210.000" height="25.000" fill="#e6e8df"/>
+<rect x="1110.000" y="393.000" width="97.023" height="25.000" fill="#8b958a"/>
+<text x="1332.000" y="414.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">0.370</text>
+<line x1="454.000" y1="406.000" x2="550.000" y2="406.000" stroke="#242923" stroke-width="2"/>
+<line x1="454.000" y1="400.000" x2="454.000" y2="412.000" stroke="#242923" stroke-width="2"/>
+<line x1="550.000" y1="400.000" x2="550.000" y2="412.000" stroke="#242923" stroke-width="2"/>
+<text x="52.000" y="475.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="21" font-weight="400" text-anchor="start" fill="#242923">Information gain</text>
+<rect x="310.000" y="451.000" width="240.000" height="25.000" fill="#e6e8df"/>
+<rect x="310.000" y="451.000" width="240.000" height="25.000" fill="#8b958a"/>
+<text x="562.000" y="472.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">100%</text>
+<rect x="705.000" y="451.000" width="210.000" height="25.000" fill="#e6e8df"/>
+<rect x="705.000" y="451.000" width="186.667" height="25.000" fill="#8b958a"/>
+<text x="927.000" y="472.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">2.67</text>
+<rect x="1110.000" y="451.000" width="210.000" height="25.000" fill="#e6e8df"/>
+<rect x="1110.000" y="451.000" width="71.710" height="25.000" fill="#8b958a"/>
+<text x="1332.000" y="472.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">0.273</text>
+<line x1="550.000" y1="464.000" x2="550.000" y2="464.000" stroke="#242923" stroke-width="2"/>
+<line x1="550.000" y1="458.000" x2="550.000" y2="470.000" stroke="#242923" stroke-width="2"/>
+<line x1="550.000" y1="458.000" x2="550.000" y2="470.000" stroke="#242923" stroke-width="2"/>
+<text x="52.000" y="533.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#242923">Adaptive heuristic</text>
+<rect x="310.000" y="509.000" width="240.000" height="25.000" fill="#e6e8df"/>
+<rect x="310.000" y="509.000" width="240.000" height="25.000" fill="#31614a"/>
+<text x="562.000" y="530.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">100%</text>
+<rect x="705.000" y="509.000" width="210.000" height="25.000" fill="#e6e8df"/>
+<rect x="705.000" y="509.000" width="186.667" height="25.000" fill="#31614a"/>
+<text x="927.000" y="530.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">2.67</text>
+<rect x="1110.000" y="509.000" width="210.000" height="25.000" fill="#e6e8df"/>
+<rect x="1110.000" y="509.000" width="66.616" height="25.000" fill="#31614a"/>
+<text x="1332.000" y="530.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">0.254</text>
+<line x1="550.000" y1="522.000" x2="550.000" y2="522.000" stroke="#242923" stroke-width="2"/>
+<line x1="550.000" y1="516.000" x2="550.000" y2="528.000" stroke="#242923" stroke-width="2"/>
+<line x1="550.000" y1="516.000" x2="550.000" y2="528.000" stroke="#242923" stroke-width="2"/>
+<text x="52.000" y="591.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="21" font-weight="700" text-anchor="start" fill="#242923">Learned cost</text>
+<rect x="310.000" y="567.000" width="240.000" height="25.000" fill="#e6e8df"/>
+<rect x="310.000" y="567.000" width="240.000" height="25.000" fill="#b44831"/>
+<text x="562.000" y="588.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">100%</text>
+<rect x="705.000" y="567.000" width="210.000" height="25.000" fill="#e6e8df"/>
+<rect x="705.000" y="567.000" width="186.667" height="25.000" fill="#b44831"/>
+<text x="927.000" y="588.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">2.67</text>
+<rect x="1110.000" y="567.000" width="210.000" height="25.000" fill="#e6e8df"/>
+<rect x="1110.000" y="567.000" width="75.703" height="25.000" fill="#b44831"/>
+<text x="1332.000" y="588.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">0.288</text>
+<line x1="550.000" y1="580.000" x2="550.000" y2="580.000" stroke="#242923" stroke-width="2"/>
+<line x1="550.000" y1="574.000" x2="550.000" y2="586.000" stroke="#242923" stroke-width="2"/>
+<line x1="550.000" y1="574.000" x2="550.000" y2="586.000" stroke="#242923" stroke-width="2"/>
+<text x="52.000" y="649.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="21" font-weight="400" text-anchor="start" fill="#242923">Root UCT proxy</text>
+<rect x="310.000" y="625.000" width="240.000" height="25.000" fill="#e6e8df"/>
+<rect x="310.000" y="625.000" width="160.000" height="25.000" fill="#8b958a"/>
+<text x="562.000" y="646.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">67%</text>
+<rect x="705.000" y="625.000" width="210.000" height="25.000" fill="#e6e8df"/>
+<rect x="705.000" y="625.000" width="140.000" height="25.000" fill="#8b958a"/>
+<text x="927.000" y="646.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">2.00</text>
+<rect x="1110.000" y="625.000" width="210.000" height="25.000" fill="#e6e8df"/>
+<rect x="1110.000" y="625.000" width="137.012" height="25.000" fill="#8b958a"/>
+<text x="1332.000" y="646.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#242923">0.522</text>
+<line x1="470.000" y1="638.000" x2="470.000" y2="638.000" stroke="#242923" stroke-width="2"/>
+<line x1="470.000" y1="632.000" x2="470.000" y2="644.000" stroke="#242923" stroke-width="2"/>
+<line x1="470.000" y1="632.000" x2="470.000" y2="644.000" stroke="#242923" stroke-width="2"/>
+<line x1="310.000" y1="686.000" x2="550.000" y2="686.000" stroke="#5e665c" stroke-width="1"/>
+<line x1="310.000" y1="686.000" x2="310.000" y2="691.000" stroke="#5e665c" stroke-width="1"/>
+<text x="310.000" y="713.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" font-weight="400" text-anchor="middle" fill="#5e665c">0%</text>
+<line x1="430.000" y1="686.000" x2="430.000" y2="691.000" stroke="#5e665c" stroke-width="1"/>
+<text x="430.000" y="713.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" font-weight="400" text-anchor="middle" fill="#5e665c">50%</text>
+<line x1="550.000" y1="686.000" x2="550.000" y2="691.000" stroke="#5e665c" stroke-width="1"/>
+<text x="550.000" y="713.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" font-weight="400" text-anchor="middle" fill="#5e665c">100%</text>
+<line x1="705.000" y1="686.000" x2="915.000" y2="686.000" stroke="#5e665c" stroke-width="1"/>
+<line x1="705.000" y1="686.000" x2="705.000" y2="691.000" stroke="#5e665c" stroke-width="1"/>
+<text x="705.000" y="713.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" font-weight="400" text-anchor="middle" fill="#5e665c">0</text>
+<line x1="810.000" y1="686.000" x2="810.000" y2="691.000" stroke="#5e665c" stroke-width="1"/>
+<text x="810.000" y="713.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" font-weight="400" text-anchor="middle" fill="#5e665c">1.5</text>
+<line x1="915.000" y1="686.000" x2="915.000" y2="691.000" stroke="#5e665c" stroke-width="1"/>
+<text x="915.000" y="713.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" font-weight="400" text-anchor="middle" fill="#5e665c">3</text>
+<line x1="1110.000" y1="686.000" x2="1320.000" y2="686.000" stroke="#5e665c" stroke-width="1"/>
+<line x1="1110.000" y1="686.000" x2="1110.000" y2="691.000" stroke="#5e665c" stroke-width="1"/>
+<text x="1110.000" y="713.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" font-weight="400" text-anchor="middle" fill="#5e665c">0.0</text>
+<line x1="1215.000" y1="686.000" x2="1215.000" y2="691.000" stroke="#5e665c" stroke-width="1"/>
+<text x="1215.000" y="713.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" font-weight="400" text-anchor="middle" fill="#5e665c">0.4</text>
+<line x1="1320.000" y1="686.000" x2="1320.000" y2="691.000" stroke="#5e665c" stroke-width="1"/>
+<text x="1320.000" y="713.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="16" font-weight="400" text-anchor="middle" fill="#5e665c">0.8</text>
+<line x1="52.000" y1="739.000" x2="1428.000" y2="739.000" stroke="#d6d9cf" stroke-width="1"/>
+<text x="52.000" y="777.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="23" font-weight="700" text-anchor="start" fill="#b44831">Learned ranking did not beat the heuristic.</text>
+<text x="52.000" y="808.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="20" font-weight="400" text-anchor="start" fill="#242923">Equal resolution and commands; +0.035 s/trial wall time on this host, plus 10.67 s training.</text>
+<text x="52.000" y="846.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="18" font-weight="400" text-anchor="start" fill="#5e665c">Prepared repairs and oracle-informed forecasts. Only three bootstrap clusters. No established coding-agent improvement.</text>
+<text x="52.000" y="875.000" font-family="Arial,DejaVu Sans,sans-serif" font-size="17" font-weight="400" text-anchor="start" fill="#5e665c">Costs include actual probe + verification subprocesses; per-trial bars exclude one-time setup. See benchmark methodology and receipts.</text>
+</svg>

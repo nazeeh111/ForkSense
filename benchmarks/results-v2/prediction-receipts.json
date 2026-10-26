@@ -1,0 +1,812 @@
+[
+  {
+    "task_id": "cache-0",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/api/', {}) == cache_key('/api', {}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.4459057920612395,
+    "status": "completed"
+  },
+  {
+    "task_id": "cache-0",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'b': 2, 'a': 1}) == cache_key('/x', {'a': 1, 'b': 2}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.12526958296075463,
+    "status": "completed"
+  },
+  {
+    "task_id": "cache-0",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'A': 1}) != cache_key('/x', {'a': 1}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.12456408294383436,
+    "status": "completed"
+  },
+  {
+    "task_id": "cache-1",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/api/', {}) == cache_key('/api', {}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.07736654207110405,
+    "status": "completed"
+  },
+  {
+    "task_id": "cache-1",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'b': 2, 'a': 1}) == cache_key('/x', {'a': 1, 'b': 2}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.08606850006617606,
+    "status": "completed"
+  },
+  {
+    "task_id": "cache-1",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'A': 1}) != cache_key('/x', {'a': 1}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.17695616697892547,
+    "status": "completed"
+  },
+  {
+    "task_id": "cache-2",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/api/', {}) == cache_key('/api', {}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.05198695894796401,
+    "status": "completed"
+  },
+  {
+    "task_id": "cache-2",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'b': 2, 'a': 1}) == cache_key('/x', {'a': 1, 'b': 2}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.12037616595625877,
+    "status": "completed"
+  },
+  {
+    "task_id": "cache-2",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(cache_key('/x', {'A': 1}) != cache_key('/x', {'a': 1}))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.14161349995993078,
+    "status": "completed"
+  },
+  {
+    "task_id": "pagination-0",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(page([1, 2, 3, 4], 1, 2) == [3, 4])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.1331269999500364,
+    "status": "completed"
+  },
+  {
+    "task_id": "pagination-0",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(len(page(list(range(20)), 1, 4)) == 4)\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.1262370829936117,
+    "status": "completed"
+  },
+  {
+    "task_id": "pagination-0",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(rejects(lambda: page([1, 2], 0, 1)))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.16785808303393424,
+    "status": "completed"
+  },
+  {
+    "task_id": "pagination-1",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(page([1, 2, 3, 4], 1, 2) == [3, 4])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.1437427500495687,
+    "status": "completed"
+  },
+  {
+    "task_id": "pagination-1",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(len(page(list(range(20)), 1, 4)) == 4)\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.1282612499780953,
+    "status": "completed"
+  },
+  {
+    "task_id": "pagination-1",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(rejects(lambda: page([1, 2], 0, 1)))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.1651342500699684,
+    "status": "completed"
+  },
+  {
+    "task_id": "pagination-2",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(page([1, 2, 3, 4], 1, 2) == [3, 4])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.17046399996615946,
+    "status": "completed"
+  },
+  {
+    "task_id": "pagination-2",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(len(page(list(range(20)), 1, 4)) == 4)\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.11770362500101328,
+    "status": "completed"
+  },
+  {
+    "task_id": "pagination-2",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(rejects(lambda: page([1, 2], 0, 1)))\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.08720658300444484,
+    "status": "completed"
+  },
+  {
+    "task_id": "csv-0",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a,\"b,c\"') == ['a', 'b,c'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.12273087503854185,
+    "status": "completed"
+  },
+  {
+    "task_id": "csv-0",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a, b') == ['a', 'b'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.12381466699298471,
+    "status": "completed"
+  },
+  {
+    "task_id": "csv-0",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a,B') == ['a', 'B'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.13680945802479982,
+    "status": "completed"
+  },
+  {
+    "task_id": "csv-1",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a,\"b,c\"') == ['a', 'b,c'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.15733579103834927,
+    "status": "completed"
+  },
+  {
+    "task_id": "csv-1",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a, b') == ['a', 'b'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.11953729204833508,
+    "status": "completed"
+  },
+  {
+    "task_id": "csv-1",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a,B') == ['a', 'B'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.07479308289475739,
+    "status": "completed"
+  },
+  {
+    "task_id": "csv-2",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a,\"b,c\"') == ['a', 'b,c'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.07648087502457201,
+    "status": "completed"
+  },
+  {
+    "task_id": "csv-2",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a, b') == ['a', 'b'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.09982674999628216,
+    "status": "completed"
+  },
+  {
+    "task_id": "csv-2",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(parse_row('a,B') == ['a', 'B'])\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.09649662498850375,
+    "status": "completed"
+  },
+  {
+    "task_id": "retry-0",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(retry(fails_then(2, 'ok'), 3) == 'ok')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.10785224998835474,
+    "status": "completed"
+  },
+  {
+    "task_id": "retry-0",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(retry(lambda: 'ok', 2) == 'ok')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.1066565839573741,
+    "status": "completed"
+  },
+  {
+    "task_id": "retry-0",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(count_nonretryable() == 1)\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.14631454192567617,
+    "status": "completed"
+  },
+  {
+    "task_id": "retry-1",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(retry(fails_then(2, 'ok'), 3) == 'ok')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.08822679100558162,
+    "status": "completed"
+  },
+  {
+    "task_id": "retry-1",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(retry(lambda: 'ok', 2) == 'ok')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.05153733305633068,
+    "status": "completed"
+  },
+  {
+    "task_id": "retry-1",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(count_nonretryable() == 1)\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.08711600000970066,
+    "status": "completed"
+  },
+  {
+    "task_id": "retry-2",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(retry(fails_then(2, 'ok'), 3) == 'ok')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.06470675009768456,
+    "status": "completed"
+  },
+  {
+    "task_id": "retry-2",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(retry(lambda: 'ok', 2) == 'ok')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.09352108300663531,
+    "status": "completed"
+  },
+  {
+    "task_id": "retry-2",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(count_nonretryable() == 1)\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.11468583391979337,
+    "status": "completed"
+  },
+  {
+    "task_id": "path-0",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(normalize_path('a\\\\b') == 'a/b')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.11857362498994917,
+    "status": "completed"
+  },
+  {
+    "task_id": "path-0",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(normalize_path('a/./b/../c') == 'a/c')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.17233170894905925,
+    "status": "completed"
+  },
+  {
+    "task_id": "path-0",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(normalize_path('A/b') == 'A/b')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.1428668339503929,
+    "status": "completed"
+  },
+  {
+    "task_id": "path-1",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(normalize_path('a\\\\b') == 'a/b')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.1657666249666363,
+    "status": "completed"
+  },
+  {
+    "task_id": "path-1",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(normalize_path('a/./b/../c') == 'a/c')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.18006112496368587,
+    "status": "completed"
+  },
+  {
+    "task_id": "path-1",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(normalize_path('A/b') == 'A/b')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.32007870892994106,
+    "status": "completed"
+  },
+  {
+    "task_id": "path-2",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(normalize_path('a\\\\b') == 'a/b')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.10446045803837478,
+    "status": "completed"
+  },
+  {
+    "task_id": "path-2",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(normalize_path('a/./b/../c') == 'a/c')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.10042541602160782,
+    "status": "completed"
+  },
+  {
+    "task_id": "path-2",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(normalize_path('A/b') == 'A/b')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.10799116594716907,
+    "status": "completed"
+  },
+  {
+    "task_id": "datetime-0",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(utc_day('2026-10-26T00:30:00+02:00') == '2026-10-25')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.2361612500390038,
+    "status": "completed"
+  },
+  {
+    "task_id": "datetime-0",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(utc_day('2026-10-26T23:30:00-02:00') == '2026-10-27')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.07230012502986938,
+    "status": "completed"
+  },
+  {
+    "task_id": "datetime-0",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(utc_day('2026-10-26T12:00:00Z') == '2026-10-26')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.06548758305143565,
+    "status": "completed"
+  },
+  {
+    "task_id": "datetime-1",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(utc_day('2026-10-26T00:30:00+02:00') == '2026-10-25')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.19743058399762958,
+    "status": "completed"
+  },
+  {
+    "task_id": "datetime-1",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(utc_day('2026-10-26T23:30:00-02:00') == '2026-10-27')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.11064683308359236,
+    "status": "completed"
+  },
+  {
+    "task_id": "datetime-1",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(utc_day('2026-10-26T12:00:00Z') == '2026-10-26')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "pass\n",
+    "stderr": "",
+    "seconds": 0.12395970907527953,
+    "status": "completed"
+  },
+  {
+    "task_id": "datetime-2",
+    "probe_id": "p0",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(utc_day('2026-10-26T00:30:00+02:00') == '2026-10-25')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.10526512505020946,
+    "status": "completed"
+  },
+  {
+    "task_id": "datetime-2",
+    "probe_id": "p1",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(utc_day('2026-10-26T23:30:00-02:00') == '2026-10-27')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.09331012505572289,
+    "status": "completed"
+  },
+  {
+    "task_id": "datetime-2",
+    "probe_id": "p2",
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.14/bin/python3",
+      "-B",
+      "-c",
+      "from subject import *\n\ndef raises_type(fn, kind):\n    try:\n        fn()\n    except kind:\n        return True\n    return False\n\ndef rejects(fn):\n    return raises_type(fn, ValueError)\n\ndef fails_then(count, result):\n    state = [0]\n    def operation():\n        state[0] += 1\n        if state[0] <= count:\n            raise RuntimeError('transient')\n        return result\n    return operation\n\ndef count_nonretryable():\n    state = [0]\n    def operation():\n        state[0] += 1\n        raise ValueError('permanent')\n    try:\n        retry(operation, 3)\n    except ValueError:\n        pass\n    return state[0]\n\ntry:\n    for _ in range(1):\n        outcome = bool(utc_day('2026-10-26T12:00:00Z') == '2026-10-26')\n    print(\"pass\" if outcome else \"fail\")\nexcept Exception:\n    print(\"fail\")\n"
+    ],
+    "returncode": 0,
+    "stdout": "fail\n",
+    "stderr": "",
+    "seconds": 0.09288804198149592,
+    "status": "completed"
+  }
+]

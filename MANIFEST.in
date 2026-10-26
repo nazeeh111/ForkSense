@@ -1,0 +1,8 @@
+include README.md LICENSE THIRD_PARTY_NOTICES.md CHANGELOG.md CONTRIBUTING.md
+recursive-include docs *.md *.svg *.png *.html *.json *.patch *.mp4 *.gif
+recursive-include integrations *.md
+recursive-include benchmarks *.py *.json *.jsonl *.md *.txt
+recursive-include scripts *.py *.cjs
+recursive-include tests *.py
+prune benchmarks/results-v1
+global-exclude __pycache__ *.py[cod]

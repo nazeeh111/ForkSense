@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "kind": "log-linear-observed-cost",
+  "coefficients": [
+    -0.5145148918392288,
+    0.0019281758624943193,
+    -1.0724025121376386,
+    -0.7132690932708295
+  ],
+  "provenance": {
+    "suite_version": 1,
+    "training_families": [
+      "cache",
+      "pagination",
+      "csv"
+    ],
+    "heldout_families": [
+      "retry",
+      "path",
+      "datetime"
+    ],
+    "training_task_hashes": {
+      "cache-0": "01819202e92e4c0bcba94c4e09e1700a04453f0cac9c34424e66b450ef474450",
+      "cache-1": "6378bb591cf33b63d171886500a5e45481aabd27caa74f91894a8749142358ec",
+      "cache-2": "62bdf0efe46fa46fcc94f1ac03dd042ed8e1473b271a8c765520379e0de53f40",
+      "pagination-0": "d7e2314608f2cb5c3a8bc727f5168d5802f961d6467367cd75c07f35705aaae0",
+      "pagination-1": "5e5d04f5e441e64c5c028460ef765fd7ec170242da590c63fb9d59abaec08c98",
+      "pagination-2": "b13f91fa4a58d4f2cfa23c8f42dd87570db53e2a1d0342957868463847a081df",
+      "csv-0": "39cf6252f88bdab09bde3619668d197140426b348c9ef6a81c1fd52f9f8a30f7",
+      "csv-1": "cb3dbef669d3ff0163f0e13a2f9b876a3a43b0eac1a2a81ca99c1cb7bb397feb",
+      "csv-2": "d41c90b3d8a3bac7993f3a05639dbe9d23c6025273ec3283f1a57cda5a330acf"
+    },
+    "warning": "Small controlled cost model; exploratory, no correctness calibration.",
+    "observations": 81,
+    "ridge": 0.1,
+    "target": "log measured subprocess wall seconds",
+    "outcome_labels_used": false
+  }
+}

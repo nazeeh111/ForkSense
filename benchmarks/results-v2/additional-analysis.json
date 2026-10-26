@@ -1,0 +1,253 @@
+{
+  "learned_vs_heuristic": {
+    "baseline": "adaptive",
+    "paired_by": [
+      "task_id",
+      "seed"
+    ],
+    "primary_cluster": "family",
+    "clusters": 3,
+    "warning": "Only three hand-built family clusters; intervals are exploratory.",
+    "policies": {
+      "single": {
+        "resolved": {
+          "mean_difference": -0.6666666666666666,
+          "family_cluster_bootstrap_95": [
+            -0.6666666666666666,
+            -0.6666666666666666
+          ]
+        },
+        "wall_seconds": {
+          "mean_difference": -0.006648791669350531,
+          "family_cluster_bootstrap_95": [
+            -0.028380998588788012,
+            0.024492381850723177
+          ]
+        },
+        "subprocess_seconds": {
+          "mean_difference": -0.005324950847878224,
+          "family_cluster_bootstrap_95": [
+            -0.027185077810039125,
+            0.026462859842771042
+          ]
+        },
+        "command_calls": {
+          "mean_difference": -1.6666666666666667,
+          "family_cluster_bootstrap_95": [
+            -1.6666666666666667,
+            -1.6666666666666667
+          ]
+        },
+        "repair_calls": {
+          "mean_difference": 0,
+          "family_cluster_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "fixed-3": {
+        "resolved": {
+          "mean_difference": 0.0,
+          "family_cluster_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "wall_seconds": {
+          "mean_difference": 0.1197988190002636,
+          "family_cluster_bootstrap_95": [
+            0.08445413617882877,
+            0.14828692081694803
+          ]
+        },
+        "subprocess_seconds": {
+          "mean_difference": 0.45930118252937163,
+          "family_cluster_bootstrap_95": [
+            0.41459119310214493,
+            0.5077623088106823
+          ]
+        },
+        "command_calls": {
+          "mean_difference": 0.3333333333333333,
+          "family_cluster_bootstrap_95": [
+            0.3333333333333333,
+            0.3333333333333333
+          ]
+        },
+        "repair_calls": {
+          "mean_difference": 2,
+          "family_cluster_bootstrap_95": [
+            2.0,
+            2.0
+          ]
+        }
+      },
+      "random": {
+        "resolved": {
+          "mean_difference": -0.2,
+          "family_cluster_bootstrap_95": [
+            -0.4,
+            0.0
+          ]
+        },
+        "wall_seconds": {
+          "mean_difference": 0.11541881380447497,
+          "family_cluster_bootstrap_95": [
+            0.03870935693848878,
+            0.16896888041325533
+          ]
+        },
+        "subprocess_seconds": {
+          "mean_difference": 0.11583918572869152,
+          "family_cluster_bootstrap_95": [
+            0.039829920938548945,
+            0.16856991822908943
+          ]
+        },
+        "command_calls": {
+          "mean_difference": -0.3111111111111111,
+          "family_cluster_bootstrap_95": [
+            -0.9333333333333333,
+            0.0
+          ]
+        },
+        "repair_calls": {
+          "mean_difference": 0,
+          "family_cluster_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "uncertainty": {
+        "resolved": {
+          "mean_difference": 0.0,
+          "family_cluster_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "wall_seconds": {
+          "mean_difference": 0.01896760412750559,
+          "family_cluster_bootstrap_95": [
+            -0.0199314418520468,
+            0.046288341640805204
+          ]
+        },
+        "subprocess_seconds": {
+          "mean_difference": 0.019407138970887496,
+          "family_cluster_bootstrap_95": [
+            -0.019098426258036247,
+            0.04611220557320242
+          ]
+        },
+        "command_calls": {
+          "mean_difference": 0,
+          "family_cluster_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "repair_calls": {
+          "mean_difference": 0,
+          "family_cluster_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "learned-cost": {
+        "resolved": {
+          "mean_difference": 0.0,
+          "family_cluster_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "wall_seconds": {
+          "mean_difference": 0.03534506017005899,
+          "family_cluster_bootstrap_95": [
+            0.01114147084687526,
+            0.05023596944908301
+          ]
+        },
+        "subprocess_seconds": {
+          "mean_difference": 0.03461968891012172,
+          "family_cluster_bootstrap_95": [
+            0.010269133187830449,
+            0.04989958355436101
+          ]
+        },
+        "command_calls": {
+          "mean_difference": 0,
+          "family_cluster_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "repair_calls": {
+          "mean_difference": 0,
+          "family_cluster_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "root-uct-proxy": {
+        "resolved": {
+          "mean_difference": -0.3333333333333333,
+          "family_cluster_bootstrap_95": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ]
+        },
+        "wall_seconds": {
+          "mean_difference": 0.2678855805412038,
+          "family_cluster_bootstrap_95": [
+            0.24340103060627977,
+            0.28673070543833695
+          ]
+        },
+        "subprocess_seconds": {
+          "mean_difference": 0.26817517097677207,
+          "family_cluster_bootstrap_95": [
+            0.24389912367720779,
+            0.2869142322257782
+          ]
+        },
+        "command_calls": {
+          "mean_difference": -0.6666666666666666,
+          "family_cluster_bootstrap_95": [
+            -0.6666666666666666,
+            -0.6666666666666666
+          ]
+        },
+        "repair_calls": {
+          "mean_difference": 1,
+          "family_cluster_bootstrap_95": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    }
+  },
+  "trajectory_checks": {
+    "learned-cost_vs_adaptive": {
+      "pairs": 90,
+      "different_experiment_sequences": 30,
+      "mean_wall_difference": 0.03534506017005899,
+      "resolution_difference": 0.0,
+      "command_difference": 0
+    },
+    "adaptive_vs_uncertainty": {
+      "pairs": 90,
+      "different_experiment_sequences": 60,
+      "mean_wall_difference": -0.01896760412750559,
+      "resolution_difference": 0.0,
+      "command_difference": 0
+    }
+  },
+  "interpretation": "The learned cost ranking changes some experiment sequences but does not improve resolution or command count over the heuristic. Observed timings do not establish a learned advantage."
+}

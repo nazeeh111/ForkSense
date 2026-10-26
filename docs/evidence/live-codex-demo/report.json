@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "run_id": "ef4078a0",
+  "task": "Fix checkout totals when tax and discount vary between requests. Preserve cache behavior.",
+  "status": "verified",
+  "reason": "A source patch passed the supplied independent verifier. Review it before accepting.",
+  "base_commit": "26cef1f78539c1e14b1cb4472d647ef2282464f1",
+  "repo": "checkout (controlled fixture)",
+  "policy": "adaptive",
+  "budgets": {
+    "seconds": 180.0,
+    "agent_calls": 2,
+    "max_experiments": 3,
+    "token_limit_soft": null
+  },
+  "plan": {
+    "version": 1,
+    "task": "Fix checkout totals when tax and discount vary between requests. Preserve cache behavior.",
+    "verify": [
+      "python3",
+      "DEMO/verify_checkout.py"
+    ],
+    "editable_paths": [
+      "checkout.py"
+    ],
+    "hypotheses": [
+      {
+        "id": "tax-key",
+        "description": "The cache key omits the tax rate",
+        "prior": 0.4
+      },
+      {
+        "id": "discount-key",
+        "description": "The cache key omits the discount",
+        "prior": 0.35
+      },
+      {
+        "id": "rounding",
+        "description": "Rounding occurs before the final calculation",
+        "prior": 0.25
+      }
+    ],
+    "experiments": [
+      {
+        "id": "vary-tax",
+        "label": "Change only tax, hold price and discount fixed",
+        "command": [
+          "python3",
+          "-c",
+          "from checkout import total; assert total(100,tax=0)==100; assert total(100,tax=.2)==120"
+        ],
+        "cost_seconds": 0.1,
+        "likelihoods": {
+          "tax-key": {
+            "pass": 0.0,
+            "fail": 1.0
+          },
+          "discount-key": {
+            "pass": 1.0,
+            "fail": 0.0
+          },
+          "rounding": {
+            "pass": 1.0,
+            "fail": 0.0
+          }
+        }
+      },
+      {
+        "id": "vary-discount",
+        "label": "Change only discount",
+        "command": [
+          "python3",
+          "-c",
+          "from checkout import total; assert total(100,discount=.1)==90; assert total(100,discount=.2)==80"
+        ],
+        "cost_seconds": 0.2,
+        "likelihoods": {
+          "tax-key": {
+            "pass": 1.0,
+            "fail": 0.0
+          },
+          "discount-key": {
+            "pass": 0.0,
+            "fail": 1.0
+          },
+          "rounding": {
+            "pass": 1.0,
+            "fail": 0.0
+          }
+        }
+      }
+    ]
+  },
+  "hypotheses": [
+    {
+      "id": "tax-key",
+      "description": "The cache key omits the tax rate",
+      "prior": 0.4,
+      "posterior": 1.0
+    },
+    {
+      "id": "discount-key",
+      "description": "The cache key omits the discount",
+      "prior": 0.35,
+      "posterior": 0.0
+    },
+    {
+      "id": "rounding",
+      "description": "Rounding occurs before the final calculation",
+      "prior": 0.25,
+      "posterior": 0.0
+    }
+  ],
+  "steps": [
+    {
+      "id": "vary-tax",
+      "kind": "probe",
+      "label": "Change only tax, hold price and discount fixed",
+      "score": 9.709505944546684,
+      "information_gain": 0.9709505944546685,
+      "cost_seconds": 0.1,
+      "command": [
+        "python3",
+        "-c",
+        "from checkout import total; assert total(100,tax=0)==100; assert total(100,tax=.2)==120"
+      ],
+      "returncode": 1,
+      "duration": 1.0232486249879003,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    from checkout import total; assert total(100,tax=0)==100; assert total(100,tax=.2)==120\n                                                                     ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "timed_out": false,
+      "error": null,
+      "truncated": false,
+      "outcome": "fail",
+      "status": "observed",
+      "posterior": {
+        "tax-key": 1.0,
+        "discount-key": 0.0,
+        "rounding": 0.0
+      }
+    },
+    {
+      "id": "repair-tax-key",
+      "kind": "repair",
+      "hypothesis": "tax-key",
+      "label": "The cache key omits the tax rate",
+      "posterior": {
+        "tax-key": 1.0,
+        "discount-key": 0.0,
+        "rounding": 0.0
+      },
+      "status": "verified",
+      "command": [
+        "codex",
+        "-a",
+        "never",
+        "exec",
+        "--ephemeral",
+        "--sandbox",
+        "workspace-write",
+        "--json",
+        "--color",
+        "never",
+        "-"
+      ],
+      "returncode": 0,
+      "duration": 56.40414224995766,
+      "stdout": "Live Codex CLI completed. Raw tool-event transcript omitted from public export.",
+      "stderr": "Local CLI startup log omitted from public export.",
+      "timed_out": false,
+      "error": null,
+      "truncated": false,
+      "usage": {
+        "input_tokens": 106604,
+        "output_tokens": 427,
+        "cached_input_tokens": 91392
+      },
+      "patch_path": "repair-tax-key.patch",
+      "sha256": "2a65aaa55862b7c3e08bc665a2484964beb7bd99a259e396ecc6a770eaa32e7d",
+      "files": [
+        "checkout.py"
+      ],
+      "verification": {
+        "command": [
+          "python3",
+          "DEMO/verify_checkout.py"
+        ],
+        "returncode": 0,
+        "duration": 0.6590487080393359,
+        "stdout": "",
+        "stderr": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n",
+        "timed_out": false,
+        "error": null,
+        "truncated": false
+      },
+      "diff": "diff --git a/checkout.py b/checkout.py\nindex e413644..e32afb4 100644\n--- a/checkout.py\n+++ b/checkout.py\n@@ -2,7 +2,7 @@\n _cache = {}\n \n def total(price, *, tax=0, discount=0):\n-    key = (price, discount)\n+    key = (price, tax, discount)\n     if key not in _cache:\n         _cache[key] = round(price * (1 - discount) * (1 + tax), 2)\n     return _cache[key]\n"
+    }
+  ],
+  "selected": {
+    "id": "repair-tax-key",
+    "patch_path": "repair-tax-key.patch",
+    "sha256": "2a65aaa55862b7c3e08bc665a2484964beb7bd99a259e396ecc6a770eaa32e7d",
+    "files": [
+      "checkout.py"
+    ],
+    "verification": {
+      "command": [
+        "python3",
+        "DEMO/verify_checkout.py"
+      ],
+      "returncode": 0,
+      "duration": 0.6590487080393359,
+      "stdout": "",
+      "stderr": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n",
+      "timed_out": false,
+      "error": null,
+      "truncated": false
+    }
+  },
+  "warnings": [
+    "Trusted local execution only. Git worktrees are not security sandboxes.",
+    "Predicted likelihoods are assumptions; test execution determines verification."
+  ],
+  "totals": {
+    "agent_calls": 1,
+    "input_tokens": 106604,
+    "output_tokens": 427,
+    "cached_input_tokens": 91392,
+    "duration": 63.704550500027835
+  },
+  "baseline": {
+    "command": [
+      "python3",
+      "DEMO/verify_checkout.py"
+    ],
+    "returncode": 1,
+    "duration": 2.2289247500011697,
+    "stdout": "",
+    "stderr": ".F.F\n======================================================================\nFAIL: test_order (__main__.CheckoutContract.test_order)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"DEMO/verify_checkout.py\", line 20, in test_order\n    self.assertEqual(m.total(price,tax=tax,discount=discount),round(price*(1-discount)*(1+tax),2))\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 1.08 != 0.9\n\n======================================================================\nFAIL: test_tax_separation (__main__.CheckoutContract.test_tax_separation)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"DEMO/verify_checkout.py\", line 9, in test_tax_separation\n    self.assertEqual(m.total(100,tax=.2),120)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 100 != 120\n\n----------------------------------------------------------------------\nRan 4 tests in 0.073s\n\nFAILED (failures=2)\n",
+    "timed_out": false,
+    "error": null,
+    "truncated": false
+  },
+  "export_note": "Machine-local paths replaced with portable labels; raw agent JSONL transcript omitted for privacy. Numeric execution metrics and verifier output are unchanged."
+}

@@ -1,0 +1,25 @@
+{
+  "subject": "Current-source report rendered from the original measured live Codex report JSON; no agent rerun.",
+  "report_sha256": "b5c3234b34a9a8cf6e0289fbe6b1bbbed5143287b27f99f1fd794fedcb2221a3",
+  "browser": "Local Chrome",
+  "desktop_width": 1440,
+  "mobile_width": 390,
+  "page_errors": [],
+  "desktop_overflow": false,
+  "mobile_overflow": false,
+  "actual_nodes": 4,
+  "frozen_base_children": 2,
+  "repair_verifier_children": 1,
+  "keyboard": {
+    "first_probe_node_focused_by_Tab": true,
+    "visible_focus_outline": "solid",
+    "Enter_opened_evidence_step_0": true,
+    "focus_moved_to_evidence_summary": true
+  },
+  "filtered_verification_jump": {
+    "repair_visible": true,
+    "repair_open": true,
+    "focus_target": "verification-1",
+    "all_filter_restored": true
+  }
+}

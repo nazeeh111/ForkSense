@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "forksense"
+version = "0.1.0"
+description = "Stop guessing. Test the alternatives. Evidence-driven experiments for coding agents."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+authors = [{name = "Nazeeh Abdul-Hadi"}]
+keywords = ["codex", "claude-code", "debugging", "experiments", "developer-tools"]
+classifiers = ["Development Status :: 3 - Alpha", "Environment :: Console", "Programming Language :: Python :: 3", "Topic :: Software Development :: Testing"]
+dependencies = []
+
+[project.scripts]
+forksense = "forksense.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/nazeeh111/ForkSense"
+Issues = "https://github.com/nazeeh111/ForkSense/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]

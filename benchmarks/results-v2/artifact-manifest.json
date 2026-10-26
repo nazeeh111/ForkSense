@@ -1,0 +1,33 @@
+{
+  "kind": "completed frozen controlled benchmark v2",
+  "files": {
+    "summary.json": {
+      "sha256": "e55e802a897bcc6a274d2e7db78e2d2e1248b4f2a04a0d1229b622ad4bf72f00",
+      "bytes": 15900
+    },
+    "cost-observations.json": {
+      "sha256": "ee3b23cfba7a8b33ec26e832b44e68c22e5d674269d23ac553b059db32001401",
+      "bytes": 117228
+    },
+    "REPORT.md": {
+      "sha256": "f61cbe023ff183112255ce4b17ececa16f995a5786bea3d503040a4796c57e6b",
+      "bytes": 3864
+    },
+    "prediction-receipts.json": {
+      "sha256": "85a3192a7dbf545dbf1b1eb6b628a4e0d71fada00bca92b8489ced7c6e357c98",
+      "bytes": 61270
+    },
+    "cost-model.json": {
+      "sha256": "7af24b670f499578713333db5109d1d66d1d93a22cb289936629689f73c7d119",
+      "bytes": 1417
+    },
+    "trials.jsonl": {
+      "sha256": "5db80322964e7f29f03828ee859e197f110680277820bfe584d24ab19c95efb7",
+      "bytes": 2188814
+    },
+    "additional-analysis.json": {
+      "sha256": "2ca0265f090d18b9e4e51c9ca6bc8940525d9db4e6cc1d54a8d13744da1708a7",
+      "bytes": 6763
+    }
+  }
+}

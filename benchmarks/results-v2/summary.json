@@ -1,0 +1,532 @@
+{
+  "kind": "controlled prepared-repair policy microbenchmark",
+  "suite": {
+    "version": 1,
+    "tasks": [
+      {
+        "id": "cache-0",
+        "family": "cache",
+        "split": "train",
+        "sha256": "01819202e92e4c0bcba94c4e09e1700a04453f0cac9c34424e66b450ef474450"
+      },
+      {
+        "id": "cache-1",
+        "family": "cache",
+        "split": "train",
+        "sha256": "6378bb591cf33b63d171886500a5e45481aabd27caa74f91894a8749142358ec"
+      },
+      {
+        "id": "cache-2",
+        "family": "cache",
+        "split": "train",
+        "sha256": "62bdf0efe46fa46fcc94f1ac03dd042ed8e1473b271a8c765520379e0de53f40"
+      },
+      {
+        "id": "pagination-0",
+        "family": "pagination",
+        "split": "train",
+        "sha256": "d7e2314608f2cb5c3a8bc727f5168d5802f961d6467367cd75c07f35705aaae0"
+      },
+      {
+        "id": "pagination-1",
+        "family": "pagination",
+        "split": "train",
+        "sha256": "5e5d04f5e441e64c5c028460ef765fd7ec170242da590c63fb9d59abaec08c98"
+      },
+      {
+        "id": "pagination-2",
+        "family": "pagination",
+        "split": "train",
+        "sha256": "b13f91fa4a58d4f2cfa23c8f42dd87570db53e2a1d0342957868463847a081df"
+      },
+      {
+        "id": "csv-0",
+        "family": "csv",
+        "split": "train",
+        "sha256": "39cf6252f88bdab09bde3619668d197140426b348c9ef6a81c1fd52f9f8a30f7"
+      },
+      {
+        "id": "csv-1",
+        "family": "csv",
+        "split": "train",
+        "sha256": "cb3dbef669d3ff0163f0e13a2f9b876a3a43b0eac1a2a81ca99c1cb7bb397feb"
+      },
+      {
+        "id": "csv-2",
+        "family": "csv",
+        "split": "train",
+        "sha256": "d41c90b3d8a3bac7993f3a05639dbe9d23c6025273ec3283f1a57cda5a330acf"
+      },
+      {
+        "id": "retry-0",
+        "family": "retry",
+        "split": "heldout",
+        "sha256": "d9abaee8bbaac034bc424d9b8c419d43a76869052de8ce7e473a3322db62b921"
+      },
+      {
+        "id": "retry-1",
+        "family": "retry",
+        "split": "heldout",
+        "sha256": "ef49a3f452e1dc66d4fed25d2e49f6ecbe14a260a6fd360dcc924be33732bd44"
+      },
+      {
+        "id": "retry-2",
+        "family": "retry",
+        "split": "heldout",
+        "sha256": "d45aa927b3f21d7c4ef00148e4433d2acf55a7ddca0112333899bbc09380f92f"
+      },
+      {
+        "id": "path-0",
+        "family": "path",
+        "split": "heldout",
+        "sha256": "34c3ece472cd3858438c93fee6866b968d97f4bbba16133d05c87ac5d1de358c"
+      },
+      {
+        "id": "path-1",
+        "family": "path",
+        "split": "heldout",
+        "sha256": "4f160a326c1cdb25eac3bebe1dea6fcdd827aac5e470f1b3e1ef7a2177b38a3a"
+      },
+      {
+        "id": "path-2",
+        "family": "path",
+        "split": "heldout",
+        "sha256": "86fc52f9a2281e652472796681e105697d21a19f01cc79e2d7b70def83f8369d"
+      },
+      {
+        "id": "datetime-0",
+        "family": "datetime",
+        "split": "heldout",
+        "sha256": "a23b0c4b170f64ef6717e16207e265587c9aa9e8c62b5a8d510807d18ca4a302"
+      },
+      {
+        "id": "datetime-1",
+        "family": "datetime",
+        "split": "heldout",
+        "sha256": "7eb9ab61596a7bc0d0fbae1c270633275707fe26ce4f0fab1244c64088578693"
+      },
+      {
+        "id": "datetime-2",
+        "family": "datetime",
+        "split": "heldout",
+        "sha256": "2aac8af1a43d76b8218fc38ea462fd8ef87f130848c3972b25ca9e07ad34850b"
+      }
+    ]
+  },
+  "environment": {
+    "python": "3.14.7",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  },
+  "seeds": 10,
+  "policies": {
+    "single": {
+      "unique_tasks": 9,
+      "trials": 90,
+      "resolution_rate": 0.3333333333333333,
+      "resolution_family_cluster_bootstrap_95": [
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "resolution_task_cluster_bootstrap_95": [
+        0.0,
+        0.6666666666666666
+      ],
+      "diagnosis_accuracy": 0.3333333333333333,
+      "incorrect_selection_rate": 0.6666666666666666,
+      "mean_probe_calls": 0,
+      "mean_prepared_repair_calls": 1,
+      "mean_command_calls": 1,
+      "mean_wall_seconds": 0.24948967040723397,
+      "mean_subprocess_seconds": 0.24844901161915106,
+      "success_per_wall_second": 1.3360606585003862,
+      "model_calls": 0
+    },
+    "fixed-3": {
+      "unique_tasks": 9,
+      "trials": 90,
+      "resolution_rate": 1,
+      "resolution_family_cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "resolution_task_cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "diagnosis_accuracy": 1,
+      "incorrect_selection_rate": 0,
+      "mean_probe_calls": 0,
+      "mean_prepared_repair_calls": 3,
+      "mean_command_calls": 3,
+      "mean_wall_seconds": 0.3759372810768481,
+      "mean_subprocess_seconds": 0.7130751449964009,
+      "success_per_wall_second": 2.6600181741368254,
+      "model_calls": 0
+    },
+    "random": {
+      "unique_tasks": 9,
+      "trials": 90,
+      "resolution_rate": 0.8,
+      "resolution_family_cluster_bootstrap_95": [
+        0.6,
+        1.0
+      ],
+      "resolution_task_cluster_bootstrap_95": [
+        0.6,
+        0.9444444444444444
+      ],
+      "diagnosis_accuracy": 0.8,
+      "incorrect_selection_rate": 0.2,
+      "mean_probe_calls": 1.3555555555555556,
+      "mean_prepared_repair_calls": 1,
+      "mean_command_calls": 2.3555555555555556,
+      "mean_wall_seconds": 0.37155727588105947,
+      "mean_subprocess_seconds": 0.3696131481957208,
+      "success_per_wall_second": 2.1531000788586114,
+      "model_calls": 0
+    },
+    "uncertainty": {
+      "unique_tasks": 9,
+      "trials": 90,
+      "resolution_rate": 1,
+      "resolution_family_cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "resolution_task_cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "diagnosis_accuracy": 1,
+      "incorrect_selection_rate": 0,
+      "mean_probe_calls": 1.6666666666666667,
+      "mean_prepared_repair_calls": 1,
+      "mean_command_calls": 2.6666666666666665,
+      "mean_wall_seconds": 0.27510606620409006,
+      "mean_subprocess_seconds": 0.2731811014379168,
+      "success_per_wall_second": 3.634961648785092,
+      "model_calls": 0
+    },
+    "adaptive": {
+      "unique_tasks": 9,
+      "trials": 90,
+      "resolution_rate": 1,
+      "resolution_family_cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "resolution_task_cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "diagnosis_accuracy": 1,
+      "incorrect_selection_rate": 0,
+      "mean_probe_calls": 1.6666666666666667,
+      "mean_prepared_repair_calls": 1,
+      "mean_command_calls": 2.6666666666666665,
+      "mean_wall_seconds": 0.25613846207658447,
+      "mean_subprocess_seconds": 0.25377396246702927,
+      "success_per_wall_second": 3.9041383784876618,
+      "model_calls": 0
+    },
+    "learned-cost": {
+      "unique_tasks": 9,
+      "trials": 90,
+      "resolution_rate": 1,
+      "resolution_family_cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "resolution_task_cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "diagnosis_accuracy": 1,
+      "incorrect_selection_rate": 0,
+      "mean_probe_calls": 1.6666666666666667,
+      "mean_prepared_repair_calls": 1,
+      "mean_command_calls": 2.6666666666666665,
+      "mean_wall_seconds": 0.2914835222466435,
+      "mean_subprocess_seconds": 0.288393651377151,
+      "success_per_wall_second": 3.430725662611672,
+      "model_calls": 0
+    },
+    "root-uct-proxy": {
+      "unique_tasks": 9,
+      "trials": 90,
+      "resolution_rate": 0.6666666666666666,
+      "resolution_family_cluster_bootstrap_95": [
+        0.6666666666666666,
+        0.6666666666666666
+      ],
+      "resolution_task_cluster_bootstrap_95": [
+        0.3333333333333333,
+        0.8888888888888888
+      ],
+      "diagnosis_accuracy": 0.6666666666666666,
+      "incorrect_selection_rate": 0.3333333333333333,
+      "mean_probe_calls": 0,
+      "mean_prepared_repair_calls": 2,
+      "mean_command_calls": 2,
+      "mean_wall_seconds": 0.5240240426177883,
+      "mean_subprocess_seconds": 0.5219491334438013,
+      "success_per_wall_second": 1.272206258583671,
+      "model_calls": 0
+    }
+  },
+  "paired_comparisons": {
+    "baseline": "fixed-3",
+    "paired_by": [
+      "task_id",
+      "seed"
+    ],
+    "primary_cluster": "family",
+    "clusters": 3,
+    "warning": "Only three hand-built family clusters; intervals are exploratory.",
+    "policies": {
+      "single": {
+        "resolved": {
+          "mean_difference": -0.6666666666666666,
+          "family_cluster_bootstrap_95": [
+            -0.6666666666666666,
+            -0.6666666666666666
+          ]
+        },
+        "wall_seconds": {
+          "mean_difference": -0.12644761066961413,
+          "family_cluster_bootstrap_95": [
+            -0.14271315827500075,
+            -0.1128351347676168
+          ]
+        },
+        "subprocess_seconds": {
+          "mean_difference": -0.4646261333772499,
+          "family_cluster_bootstrap_95": [
+            -0.48273512348532677,
+            -0.42984382767851154
+          ]
+        },
+        "command_calls": {
+          "mean_difference": -2,
+          "family_cluster_bootstrap_95": [
+            -2.0,
+            -2.0
+          ]
+        },
+        "repair_calls": {
+          "mean_difference": -2,
+          "family_cluster_bootstrap_95": [
+            -2.0,
+            -2.0
+          ]
+        }
+      },
+      "random": {
+        "resolved": {
+          "mean_difference": -0.2,
+          "family_cluster_bootstrap_95": [
+            -0.4,
+            0.0
+          ]
+        },
+        "wall_seconds": {
+          "mean_difference": -0.004380005195788625,
+          "family_cluster_bootstrap_95": [
+            -0.08794604306652522,
+            0.08451474423442656
+          ]
+        },
+        "subprocess_seconds": {
+          "mean_difference": -0.3434619968006801,
+          "family_cluster_bootstrap_95": [
+            -0.374761272163596,
+            -0.2869801274461982
+          ]
+        },
+        "command_calls": {
+          "mean_difference": -0.6444444444444445,
+          "family_cluster_bootstrap_95": [
+            -1.2666666666666666,
+            -0.3333333333333333
+          ]
+        },
+        "repair_calls": {
+          "mean_difference": -2,
+          "family_cluster_bootstrap_95": [
+            -2.0,
+            -2.0
+          ]
+        }
+      },
+      "uncertainty": {
+        "resolved": {
+          "mean_difference": 0.0,
+          "family_cluster_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "wall_seconds": {
+          "mean_difference": -0.10083121487275801,
+          "family_cluster_bootstrap_95": [
+            -0.16821836266899481,
+            -0.03816579453802357
+          ]
+        },
+        "subprocess_seconds": {
+          "mean_difference": -0.43989404355848416,
+          "family_cluster_bootstrap_95": [
+            -0.5268607350687186,
+            -0.38338355550464864
+          ]
+        },
+        "command_calls": {
+          "mean_difference": -0.3333333333333333,
+          "family_cluster_bootstrap_95": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ]
+        },
+        "repair_calls": {
+          "mean_difference": -2,
+          "family_cluster_bootstrap_95": [
+            -2.0,
+            -2.0
+          ]
+        }
+      },
+      "adaptive": {
+        "resolved": {
+          "mean_difference": 0.0,
+          "family_cluster_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "wall_seconds": {
+          "mean_difference": -0.1197988190002636,
+          "family_cluster_bootstrap_95": [
+            -0.14828692081694803,
+            -0.08445413617882877
+          ]
+        },
+        "subprocess_seconds": {
+          "mean_difference": -0.45930118252937163,
+          "family_cluster_bootstrap_95": [
+            -0.5077623088106823,
+            -0.41459119310214493
+          ]
+        },
+        "command_calls": {
+          "mean_difference": -0.3333333333333333,
+          "family_cluster_bootstrap_95": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ]
+        },
+        "repair_calls": {
+          "mean_difference": -2,
+          "family_cluster_bootstrap_95": [
+            -2.0,
+            -2.0
+          ]
+        }
+      },
+      "learned-cost": {
+        "resolved": {
+          "mean_difference": 0.0,
+          "family_cluster_bootstrap_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "wall_seconds": {
+          "mean_difference": -0.0844537588302046,
+          "family_cluster_bootstrap_95": [
+            -0.11551392915813873,
+            -0.03979639596461008
+          ]
+        },
+        "subprocess_seconds": {
+          "mean_difference": -0.42468149361924995,
+          "family_cluster_bootstrap_95": [
+            -0.4578627252563213,
+            -0.4043220599143145
+          ]
+        },
+        "command_calls": {
+          "mean_difference": -0.3333333333333333,
+          "family_cluster_bootstrap_95": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ]
+        },
+        "repair_calls": {
+          "mean_difference": -2,
+          "family_cluster_bootstrap_95": [
+            -2.0,
+            -2.0
+          ]
+        }
+      },
+      "root-uct-proxy": {
+        "resolved": {
+          "mean_difference": -0.3333333333333333,
+          "family_cluster_bootstrap_95": [
+            -0.3333333333333333,
+            -0.3333333333333333
+          ]
+        },
+        "wall_seconds": {
+          "mean_difference": 0.14808676154094025,
+          "family_cluster_bootstrap_95": [
+            0.11674563060126578,
+            0.189070869400166
+          ]
+        },
+        "subprocess_seconds": {
+          "mean_difference": -0.19112601155259956,
+          "family_cluster_bootstrap_95": [
+            -0.22084807658490416,
+            -0.17069206942493717
+          ]
+        },
+        "command_calls": {
+          "mean_difference": -1,
+          "family_cluster_bootstrap_95": [
+            -1.0,
+            -1.0
+          ]
+        },
+        "repair_calls": {
+          "mean_difference": -1,
+          "family_cluster_bootstrap_95": [
+            -1.0,
+            -1.0
+          ]
+        }
+      }
+    }
+  },
+  "harness_sha256": "100c2081e866e38ff75dc4cc0008d3b1dabeb7c0c7e368f80cef36c68b7fcb77",
+  "setup_costs": {
+    "oracle_prediction_executions": 54,
+    "oracle_prediction_subprocess_seconds": 6.968289542128332,
+    "learned_cost_training_executions": 81,
+    "learned_cost_training_subprocess_seconds": 10.671291257021949,
+    "learned_cost_fit_seconds": 0.0006800830597057939,
+    "learned_success_per_wall_second_including_training": 2.4386616745264535,
+    "note": "Per-trial policy metrics exclude one-time oracle setup and cost training; this field exposes overhead."
+  },
+  "limitations": [
+    "18 synthetic microtasks total, 9 held-out tasks in 3 held-out families; not SWE-bench.",
+    "Repairs are prepared causal templates, not agent-generated patches; model calls are zero.",
+    "Hypotheses and likelihoods are oracle-informed from the three known fault interventions.",
+    "Bulk probe p0 repeats 4000 times; the other probes execute once. This intentionally varies diagnostic cost.",
+    "Fixed-3 runs three prepared repairs and independent verifiers concurrently; subprocess time sums compute, wall time measures concurrency.",
+    "Root UCT is a root-only two-pull proxy over prepared repairs, not agent-mcts, Saplings or full MCTS.",
+    "Primary bootstrap clusters by three held-out families; task-level intervals are secondary. Seeds are repeats, not independent tasks.",
+    "Training cost regression sees only train-family measured durations and command features.",
+    "Small suite, hand-built causes and predicted outcomes do not establish broad agent performance gains."
+  ]
+}
