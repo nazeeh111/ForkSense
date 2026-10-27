@@ -32,7 +32,7 @@ These works are cited as prior art and motivation. Their reported performance nu
 
 ## Presentation tools and assets
 
-[PaperVizAgent](https://github.com/google-research/papervizagent) and [brag](https://github.com/latent-spaces/brag) were investigated for technical figures and launch materials. Their frameworks and generated assets are not bundled. ForkSense's editable diagrams and chart geometry are original source. The chart script optionally uses [Pillow](https://python-pillow.org/) to rasterize its own geometry; Pillow is a development tool and is not included in the runtime wheel.
+ForkSense's editable diagrams and chart geometry are original source. The chart script optionally uses [Pillow](https://python-pillow.org/) to rasterize its own geometry; Pillow is a development tool and is not included in the runtime wheel.
 
 The demo media is accompanied by retained capture/encoding provenance under [docs/assets/demo-source](docs/assets/demo-source). Screenshots and footage show actual local project output. Presentation assets and controlled fixtures must not be mistaken for comparative agent-performance evidence.
 

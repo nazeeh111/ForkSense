@@ -49,12 +49,6 @@ For the learned policy, freeze train/validation/test families before fitting. Co
 
 **SWE-bench practical limits:** the official harness uses Docker, recommends substantial x86 resources, and flags ARM support as experimental; current documentation supports local task-repository builds on M-series Macs. Validate environment before launching downloads. Unique run IDs matter because cached evaluation can otherwise reuse earlier results. [Official repository setup and usage](https://github.com/SWE-bench/SWE-bench).
 
-## Presentation foundations
-
-**PaperVizAgent** is the official renamed PaperBanana implementation, Apache-2.0. Its five-agent diagram pipeline includes model/image generation and API/cloud configuration. The repository says it is a demonstration framework. Investigated as requested; for this free-subscription-only task, hand-authored SVG diagrams rendered from actual method data avoid provider setup and are more directly auditable. [Repository](https://github.com/google-research/papervizagent).
-
-**/brag** is an MIT agent skill that creates short launch videos through HyperFrames; it lists Node 22+, FFmpeg, and HyperFrames. It can use local Kokoro narration when explicitly enabled. Use the installed local brag skill if useful, but an authentic terminal/video capture of a successful current run should remain the evidence. Avoid calling a designed reenactment a recording. Preserve license notices for any bundled music/SFX used. [Repository](https://github.com/latent-spaces/brag).
-
 ## Claims to avoid at release
 
 - “First” or “state of the art” from this bounded research pass.

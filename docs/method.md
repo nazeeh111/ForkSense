@@ -94,7 +94,7 @@ The relevant opportunity is a useful experiment-selection layer with measurable 
 
 The [official SWE-bench harness](https://github.com/SWE-bench/SWE-bench) is the reference for full SWE-bench evaluation. This project does not substitute hand-selected reproductions or synthetic tasks for that harness.
 
-[PaperVizAgent](https://github.com/google-research/papervizagent) was investigated for diagrams. Its model/API pipeline would add provider setup, so the project uses original, source-controlled SVG figures instead. The [brag project](https://github.com/latent-spaces/brag) informed launch-video investigation; the project's actual captures and media provenance remain the evidence. See [third-party notices](../THIRD_PARTY_NOTICES.md).
+The project uses original, source-controlled SVG figures. Captures and media provenance are documented in [third-party notices](../THIRD_PARTY_NOTICES.md).
 
 ## Live issue reproduction
 
