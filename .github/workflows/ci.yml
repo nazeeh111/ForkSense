@@ -42,7 +42,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import hashlib, json, re
-          files = [Path('README.md'), Path('CONTRIBUTING.md'), Path('CHANGELOG.md'), Path('THIRD_PARTY_NOTICES.md'), *Path('docs').glob('*.md')]
+          files = [Path('README.md'), Path('CONTRIBUTING.md'), Path('CHANGELOG.md'), *Path('docs').glob('*.md')]
           failures = []
           for file in files:
               text = file.read_text()

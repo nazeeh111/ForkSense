@@ -154,4 +154,4 @@ The current method uses standard Bayesian updates and information gain. Its rese
 
 A small reproducible task with independent tests is more useful than a feature request for another orchestration layer. [Contributing](CONTRIBUTING.md) explains local checks, evidence requirements and how to propose a fair benchmark. [Adoption notes](docs/adoption.md) describe a practical, evidence-first path to broader use.
 
-[MIT license](LICENSE) · [Third-party notices](THIRD_PARTY_NOTICES.md) · [Changelog](CHANGELOG.md)
+[MIT license](LICENSE) · [Changelog](CHANGELOG.md)

@@ -1,4 +1,4 @@
-include README.md LICENSE THIRD_PARTY_NOTICES.md CHANGELOG.md CONTRIBUTING.md
+include README.md LICENSE CHANGELOG.md CONTRIBUTING.md
 recursive-include docs *.md *.svg *.png *.html *.json *.patch *.mp4 *.gif
 recursive-include integrations *.md
 recursive-include benchmarks *.py *.json *.jsonl *.md *.txt
